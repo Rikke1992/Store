@@ -1,0 +1,10 @@
+.category {
+  background: rgb(187, 200, 187);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.category img {
+  max-height: 150px;
+}

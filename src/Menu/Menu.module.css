@@ -1,0 +1,11 @@
+.menu ul {
+  background: rgb(209, 219, 209);
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.category img {
+  max-height: 150px;
+}
