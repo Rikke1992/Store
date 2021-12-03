@@ -53,7 +53,7 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
       <App />
-      <Query />
+      {/* <Query /> */}
     </BrowserRouter>
   </ApolloProvider>,
   document.getElementById("root")

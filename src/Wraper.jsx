@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Category from "./Category/Category";
+import { Query } from "./Query/Query";
 
 let state = {
   data: {
@@ -206,11 +207,12 @@ class Wraper extends React.Component {
           path="/Category/Clothes"
           render={() => {
             return (
-              <Category
+              <Query value={"clothes"} />
+              /*  <Category
                 products={state.data.category.products}
                 category={state.data.category.name}
                 id={state.data.category.products.id}
-              />
+              /> */
             );
           }}
         />

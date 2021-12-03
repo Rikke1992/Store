@@ -32,6 +32,21 @@ const GET_PRODUCTS_OF_CATEGORY = gql`
     }
   }
 `;
+const GetCategor = gql`
+  query getCategor($input: CategoryInput) {
+    category(input: $input) {
+      name
+      products {
+        name
+        gallery
+        prices {
+          currency
+          amount
+        }
+      }
+    }
+  }
+`;
 
 const GET_ALL_PRODUCTS = gql`
   query getAllProductsByCategories {
@@ -48,8 +63,12 @@ const GET_ALL_PRODUCTS = gql`
   }
 `;
 
-export let Query = () => {
-  const { loading, error, data } = useQuery(GET_PRODUCTS_OF_CATEGORY);
+export let Query = (props) => {
+  const { loading, error, data } = useQuery(GetCategor, {
+    variables: {
+      CategoryInput: `${props.value}`,
+    },
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
