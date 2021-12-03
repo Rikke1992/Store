@@ -6,6 +6,7 @@ import {
   gql,
 } from "@apollo/client";
 import { getVariableValues } from "graphql/execution/values";
+import Category from "../Category/Category";
 
 const quer = gql`
   type Query {
@@ -74,7 +75,8 @@ export let Query = (props) => {
   if (error) return <p>Error :(</p>;
 
   return (
-    <div>
+    <Category products={data.category.products} />
+    /* <div>
       {data.category.products.map((item) => {
         return (
           <span>
@@ -82,6 +84,6 @@ export let Query = (props) => {
           </span>
         );
       })}
-    </div>
+    </div> */
   );
 };

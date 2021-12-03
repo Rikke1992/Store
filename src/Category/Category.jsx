@@ -4,6 +4,8 @@ import style from "./Category.module.css";
 
 class Category extends React.Component {
   render() {
+    console.log("thisProps>>>>" + this.props.products);
+   
     return (
       <div className={style.category}>
         {this.props.products.map((item) => {
@@ -25,6 +27,5 @@ class Category extends React.Component {
     );
   }
 }
-
 
 export default Category;
