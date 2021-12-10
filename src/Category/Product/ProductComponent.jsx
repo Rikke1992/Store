@@ -1,10 +1,14 @@
 import React from "react";
-
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+//import store from "./Redux/ReduxStore";
+import { compose } from "redux";
+import { QueryGetCategor, QueryGetProductOfId } from "../../Query/Query";
 class ProductComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainPhoto: props.photo[0],
+      mainPhoto: "props.photo[0]",
     };
     this.chengeMainPhoto = this.chengeMainPhoto.bind(this);
   }
@@ -13,9 +17,12 @@ class ProductComponent extends React.Component {
       mainPhoto: value,
     });
   };
+  componentDidMount() {}
   render() {
+   
     return (
-      <div>
+      <QueryGetProductOfId value={this.props.match.params.id} />
+      /*      <div>
         <div>
           {photo.map((item) => {
             return (
@@ -40,15 +47,23 @@ class ProductComponent extends React.Component {
               <span>Price</span>
               <span>{this.props.price}</span>
             </div>
-            <div onClick={}>Add to Cart</div>
+            <div>Add to Cart</div>
             <div>
               <p>Bla bla bla</p>
             </div>
           </div>
         </div>
-      </div>
+      </div> */
     );
   }
 }
+let mapStateToProps = (state) => {
+  return {
+    state,
+  };
+};
 
-export default ProductComponent;
+export default compose(
+  withRouter,
+  connect(mapStateToProps, {})
+)(ProductComponent);

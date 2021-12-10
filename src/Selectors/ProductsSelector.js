@@ -1,5 +1,5 @@
-export const ProfileSelector = (state) => {
-  return state.Profile;
+export const ProductsClothesCategorySelector = (state) => {
+  return state.Products;
 };
 
 export const ProfileSelectorStatus = (state) => {

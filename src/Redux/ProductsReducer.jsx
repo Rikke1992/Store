@@ -1,37 +1,35 @@
-let initialState = {
-    clothes: {},
-    other: {}
-};
+let initialState = null;
+const GET_STATE_WITH_PRODUCTS = "getStateWithProducts";
 
-
-
-export const authAppMeThunk = () => (dispatch) => {
-    /*  let promiseAuth = dispatch(authMeThunk());
- 
-     promiseAuth.then(() => {
-         dispatch(isAuthAPP(true));
-     }); */
+export const getStateWithProductsThunk = (array) => {
+  return (dispatch) => {
+    dispatch(getStateWithProducts(array));
+  };
 };
 
 const ProductsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "___":
-            {
-                let newState = { ...state };
+  switch (action.type) {
+    case GET_STATE_WITH_PRODUCTS:
+      {
+        let newState = { ...state };
 
-                return newState;
-            }
-            break;
+        newState = action.product;
+        console.log("newState>>>>>>" + newState);
+        return newState;
+      }
+      break;
 
-        default: {
-            return state;
-        }
+    default: {
+      return state;
     }
+  }
 };
 
-export const ___ = (__) => ({
-    type: "isAuthAPP",
-    __,
-});
+const getStateWithProducts = (product) => {
+  return {
+    type: GET_STATE_WITH_PRODUCTS,
+    product,
+  };
+};
 
 export default ProductsReducer;

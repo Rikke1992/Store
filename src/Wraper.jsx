@@ -1,6 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Category from "./Category/Category";
+
+import ProductComponent from "./Category/Product/ProductComponent";
 import { Query } from "./Query/Query";
 
 let state = {
@@ -204,29 +206,31 @@ class Wraper extends React.Component {
     return (
       <div>
         <Route
+          exact
           path="/Category/Clothes"
           render={() => {
-            return (
-              <Query value={"clothes"} />
-              /*  <Category
-                products={state.data.category.products}
-                category={state.data.category.name}
-                id={state.data.category.products.id}
-              /> */
-            );
+            return <Query value={"clothes"} />;
+          }}
+        />
+        {/*  <Route
+          path="/Category/product/:id?"
+          render={() => {
+            return <ProductComponent />;
+          }}
+        /> */}
+
+        <Route
+          exact
+          path="/Category/:category/:id"
+          render={() => {
+            return <ProductComponent />;
           }}
         />
 
         <Route
           path="/Category/Tech"
           render={() => {
-            return (
-              <Category
-                products={state.data.category.products}
-                category={state.data.category.name}
-                id={state.data.category.products.id}
-              />
-            );
+            return <Query value={"tech"} />;
           }}
         />
       </div>
