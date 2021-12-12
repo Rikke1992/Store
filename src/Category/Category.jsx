@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Category.module.css";
 
-
 let Category = (props) => {
   return (
     <div className={style.category}>

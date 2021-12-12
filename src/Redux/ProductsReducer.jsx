@@ -1,9 +1,15 @@
-let initialState = null;
+let initialState = { product: null, onChange: false };
 const GET_STATE_WITH_PRODUCTS = "getStateWithProducts";
+const GET_ONE_PRODUCT = "getOneProduct";
 
 export const getStateWithProductsThunk = (array) => {
   return (dispatch) => {
     dispatch(getStateWithProducts(array));
+  };
+};
+export const getOneProductsThunk = (item) => {
+  return (dispatch) => {
+    dispatch(getOneProductAction(item));
   };
 };
 
@@ -12,8 +18,17 @@ const ProductsReducer = (state = initialState, action) => {
     case GET_STATE_WITH_PRODUCTS:
       {
         let newState = { ...state };
+        newState.product = action.product;
+        debugger;
+        console.log("newState>>>>>>" + newState);
+        return newState;
+      }
+      break;
 
-        newState = action.product;
+    case GET_ONE_PRODUCT:
+      {
+        let newState = { ...state };
+        newState.product = action.product;
         console.log("newState>>>>>>" + newState);
         return newState;
       }
@@ -24,10 +39,16 @@ const ProductsReducer = (state = initialState, action) => {
     }
   }
 };
-
 const getStateWithProducts = (product) => {
   return {
     type: GET_STATE_WITH_PRODUCTS,
+    product,
+  };
+};
+
+const getOneProductAction = (product) => {
+  return {
+    type: GET_ONE_PRODUCT,
     product,
   };
 };

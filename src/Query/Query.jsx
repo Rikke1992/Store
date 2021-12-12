@@ -102,9 +102,9 @@ export let Query = (props) => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-
   return <CategoryContainer allProducts={data.category.products} data={data} />;
 };
+
 export let QueryGetProductOfId = (props) => {
   const { loading, error, data } = useQuery(GET_PRODUCT_OF_ID, {
     variables: {
@@ -115,6 +115,5 @@ export let QueryGetProductOfId = (props) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
   debugger;
-
-  return <div>1</div>;
+  return <ProductComponent oneProduct={true} data={data} />;
 };

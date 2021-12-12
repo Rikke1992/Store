@@ -9,10 +9,10 @@ class Menu extends React.Component {
         <nav>
           <ul>
             <li>
-              <NavLink to="/Category/Clothes">Clothes</NavLink>
+              <NavLink to="/category/clothes">Clothes</NavLink>
             </li>
             <li>
-              <NavLink to="/Category/Tech">Tech</NavLink>
+              <NavLink to="/category/tech">Tech</NavLink>
             </li>
             <li>
               <NavLink to="/">Home</NavLink>

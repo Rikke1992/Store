@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Category from "./Category/Category";
-
-import ProductComponent from "./Category/Product/ProductComponent";
+import CheckCategoryAndQuery from "./Category/CheckCategoryAndQuery";
+import ProductQueryComponent from "./Category/Product/ProductQueryComponent";
 import { Query } from "./Query/Query";
 
 let state = {
@@ -205,32 +205,26 @@ class Wraper extends React.Component {
     this.checkCategory();
     return (
       <div>
-        <Route
+        {/* <Route
           exact
-          path="/Category/Clothes"
+          path="/category/clothes"
           render={() => {
             return <Query value={"clothes"} />;
           }}
-        />
-        {/*  <Route
-          path="/Category/product/:id?"
-          render={() => {
-            return <ProductComponent />;
-          }}
         /> */}
+        <Route
+          exact
+          path="/category/:category"
+          render={() => {
+            return <CheckCategoryAndQuery />;
+          }}
+        />
 
         <Route
           exact
           path="/Category/:category/:id"
           render={() => {
-            return <ProductComponent />;
-          }}
-        />
-
-        <Route
-          path="/Category/Tech"
-          render={() => {
-            return <Query value={"tech"} />;
+            return <ProductQueryComponent />;
           }}
         />
       </div>

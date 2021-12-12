@@ -1,7 +1,10 @@
-export const ProductsClothesCategorySelector = (state) => {
-  return state.Products;
+export const ProductsCategorySelector = (state) => {
+  return state.Products.product;
 };
 
+export const onChangeCategorySelector = (state) => {
+  return state.Products.onChange;
+};
 export const ProfileSelectorStatus = (state) => {
   return state.Profile.status;
 };
