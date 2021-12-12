@@ -7,10 +7,23 @@ import { ProductsCategorySelector } from "../../Selectors/ProductsSelector";
 import Product from "./Product";
 
 class ProductQueryComponent extends React.Component {
+  state = {
+    productInState: null,
+    isLoading: true,
+  };
+  ProductInStateChange = () => {
+    this.setState({
+      productInState: true,
+    });
+  };
+  IsLoadingChange = () => {
+    this.setState({ isLoading: false });
+  };
   findProduct() {
     if (this.props.product != null) {
-      this.props.product.find((item) => {
+      return this.props.product.find((item) => {
         debugger;
+
         return item.id == this.props.match.params.id;
       });
     } else {
@@ -18,58 +31,54 @@ class ProductQueryComponent extends React.Component {
       return undefined;
     }
   }
-  render() {
+  componentDidMount() {
     debugger;
     if (this.findProduct()) {
+      this.ProductInStateChange();
+      this.IsLoadingChange();
       debugger;
-      return <Product product={'this.findProduct()'} />;
+    } else {
+      return this.IsLoadingChange();
+    }
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      debugger;
+      return <div>LOADING PLEEEEase</div>;
+    } else {
+      debugger;
+      if (this.state.productInState) {
+        debugger;
+        return <Product product={"alalala"} />;
+      } else {
+        debugger;
+        return <QueryGetProductOfId value={this.props.match.params.id} />;
+      }
+    }
+
+    /* debugger;
+    if (this.findProduct()) {
+      debugger;
+      return <Product product={"this.findProduct()"} />;
     } else {
       debugger;
 
-      return (
-        <QueryGetProductOfId value={this.props.match.params.id} />
-        /*      <div>
-          <div>
-            {photo.map((item) => {
-              return (
-                <div id={item.photo}>
-                  <img src={item.photo}></img>
-                </div>
-              );
-            })}
-          </div>
-          <div>
-            <img src={this.state.mainPhoto}></img>
-          </div>
-          <div>
-            <h1>{this.props.name}</h1>
-            <h2>{this.props.descriptions}</h2>
-            <div>
-              <span>Size ore color</span>
-              <div className={"sizeOreColor"}>
-                {this.props.size.map(() => {})}
-              </div>
-              <div>
-                <span>Price</span>
-                <span>{this.props.price}</span>
-              </div>
-              <div>Add to Cart</div>
-              <div>
-                <p>Bla bla bla</p>
-              </div>
-            </div>
-          </div>
-        </div> */
-      );
-    }
+      return <QueryGetProductOfId value={this.props.match.params.id} />;
+    } */
   }
 }
+
+/* class ProductQueryComponent extends React.Component {
+  render() {
+    return <QueryGetProductOfId value={this.props.match.params.id} />;
+  }
+} */
 let mapStateToProps = (state) => {
   return {
     product: ProductsCategorySelector(state),
   };
 };
-
 export default compose(
   withRouter,
   connect(mapStateToProps, {})

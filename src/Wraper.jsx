@@ -198,20 +198,9 @@ let state = {
 };
 
 class Wraper extends React.Component {
-  checkCategory = () => {
-    console.log(this.props.match);
-  };
   render() {
-    this.checkCategory();
     return (
       <div>
-        {/* <Route
-          exact
-          path="/category/clothes"
-          render={() => {
-            return <Query value={"clothes"} />;
-          }}
-        /> */}
         <Route
           exact
           path="/category/:category"
