@@ -1,9 +1,10 @@
-let initialState = { product: null, onChange: false };
+let initialState = { product: null, onChange: false, OneProduct: null };
 const GET_STATE_WITH_PRODUCTS = "getStateWithProducts";
 const GET_ONE_PRODUCT = "getOneProduct";
 
 export const getStateWithProductsThunk = (array) => {
   return (dispatch) => {
+    debugger;
     dispatch(getStateWithProducts(array));
   };
 };
@@ -28,7 +29,7 @@ const ProductsReducer = (state = initialState, action) => {
     case GET_ONE_PRODUCT:
       {
         let newState = { ...state };
-        newState.product = action.product;
+        newState.OneProduct = action.product;
         console.log("newState>>>>>>" + newState);
         return newState;
       }

@@ -1,23 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getOneProductsThunk } from "../../Redux/ProductsReducer";
-import { ProductsCategorySelector } from "../../Selectors/ProductsSelector";
+import {
+  OneProductSelector,
+  ProductsCategorySelector,
+} from "../../Selectors/ProductsSelector";
 import Product from "./Product";
 
 class ProductComponent extends React.Component {
   componentDidMount() {
-    if (this.props.oneProduct) {
-      debugger;
-      this.props.getOneProductsThunk(this.props.data);
-    }
+    debugger;
+    this.props.getOneProductsThunk(this.props.data.product);
+    debugger;
   }
   render() {
-    return <Product product={this.props.product} />;
+    debugger;
+    if (this.props.GetOneProduct) {
+      return <Product product={this.props.GetOneProduct} />;
+    } else {
+      debugger;
+      return <span>LOADING</span>;
+    }
   }
 }
 let mapStateToProps = (state) => {
   return {
     product: ProductsCategorySelector(state),
+    GetOneProduct: OneProductSelector(state),
   };
 };
 

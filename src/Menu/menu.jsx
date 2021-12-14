@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SmallCartContainer from "../Cart/SmallCart/SmallCartContainer";
 import style from "./Menu.module.css";
 
 class Menu extends React.Component {
@@ -25,7 +26,7 @@ class Menu extends React.Component {
               <div id={"RUB"}>RUB</div>
             </li>
             <li>
-              <NavLink to="/Cart">Basket</NavLink>
+              <SmallCartContainer />
             </li>
           </ul>
         </nav>

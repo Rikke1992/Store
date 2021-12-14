@@ -1,0 +1,15 @@
+.wraperProduct {
+  display: flex;
+}
+.carouselProduct {
+  display: flex;
+  flex-direction: column;
+}
+
+.carouselProduct img {
+  max-width: 100px;
+}
+
+.mainPhoto img {
+  max-width: 450px;
+}
