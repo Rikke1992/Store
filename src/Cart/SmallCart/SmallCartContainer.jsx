@@ -5,11 +5,27 @@ import {
   CartProductSelector,
 } from "../../Selectors/CartSelector";
 import SmallCart from "./SmallCart";
+import { PlusProductThunk, MinusProductThunk } from "./../../Redux/CartReducer";
 
 class SmallCartContainer extends React.Component {
+  PlusProductFoo = (id) => {
+    debugger;
+    this.props.PlusProductThunk(id);
+  };
+
+  MinusProductFoo = (id) => {
+    debugger;
+    this.props.MinusProductThunk(id);
+  };
   render() {
     debugger;
-    return <SmallCart cartProducts={this.props.cartProducts} />;
+    return (
+      <SmallCart
+        cartProducts={this.props.cartProducts}
+        PlusProductFoo={this.PlusProductFoo}
+        MinusProductFoo={this.MinusProductFoo}
+      />
+    );
   }
 }
 const mapStateToProps = (state) => {
@@ -18,4 +34,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(SmallCartContainer);
+export default connect(mapStateToProps, {
+  PlusProductThunk,
+  MinusProductThunk,
+})(SmallCartContainer);

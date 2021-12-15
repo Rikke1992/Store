@@ -1,0 +1,18 @@
+.DropDown {
+  position: fixed;
+  display: block;
+  background: rgb(129, 168, 184);
+}
+.DropDown img {
+  max-width: 150px;
+}
+.smallCart {
+  display: block;
+  padding: 2px;
+  border: 1px solid black;
+}
+.add img {
+  max-width: 25px;
+  background: white;
+  border: 1px solid black;
+}
