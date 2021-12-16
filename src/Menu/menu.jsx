@@ -26,7 +26,9 @@ class Menu extends React.Component {
               <div id={"RUB"}>RUB</div>
             </li>
             <li>
-              <SmallCartContainer />
+              <NavLink to="/Cart">
+                <SmallCartContainer />
+              </NavLink>
             </li>
           </ul>
         </nav>

@@ -9,12 +9,12 @@ import { PlusProductThunk, MinusProductThunk } from "./../../Redux/CartReducer";
 
 class SmallCartContainer extends React.Component {
   PlusProductFoo = (id) => {
-    debugger;
+    
     this.props.PlusProductThunk(id);
   };
 
   MinusProductFoo = (id) => {
-    debugger;
+    
     this.props.MinusProductThunk(id);
   };
   render() {

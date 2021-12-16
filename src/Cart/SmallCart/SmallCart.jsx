@@ -4,17 +4,27 @@ import style from "./SmallCartStyle.module.css";
 
 let SmallCart = (props) => {
   let [stateOnBlure, ChengeStateOnBlure] = useState(false);
-  let onBlurDropDownMenu = (eent) => {
-    let result = stateOnBlure ? false : true;
-    return ChengeStateOnBlure(result);
+  let onBlurDropDownMenu = () => {
+    return ChengeStateOnBlure(true);
   };
+  let ofBlurDropDownMenu = () => {
+    return ChengeStateOnBlure(false);
+  };
+
   debugger;
   return (
-    <div onClick={onBlurDropDownMenu} className={style.smallCart}
+    <div
+      onMouseEnter={onBlurDropDownMenu}
+      onMouseLeave={ofBlurDropDownMenu}
+      className={style.smallCart}
     >
       <span>Cart</span>
       <span>{props.cartProducts.value ? props.cartProducts.value : null}</span>
-      <DropDownCart {...props} stateOnBlure={stateOnBlure} />
+      <DropDownCart
+        {...props}
+        stateOnBlure={stateOnBlure}
+        ofBlurDropDownMenu={ofBlurDropDownMenu}
+      />
     </div>
   );
 };

@@ -78,6 +78,9 @@ const CartReducer = (state = initialState, action) => {
             return item;
           }
         });
+        newState.products = newState.products.filter((it) => {
+          return it.value != 0;
+        });
         return newState;
       }
       break;

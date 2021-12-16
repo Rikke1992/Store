@@ -4,10 +4,7 @@ import { withRouter } from "react-router";
 import { compose } from "redux";
 import { QueryGetProductOfId } from "../../Query/Query";
 import { AddToCartProductThunk } from "./../../Redux/CartReducer";
-import {
-  
-  ProductsCategorySelector,
-} from "../../Selectors/ProductsSelector";
+import { ProductsCategorySelector } from "../../Selectors/ProductsSelector";
 import Product from "./Product";
 import { CartProductSelector } from "../../Selectors/CartSelector";
 

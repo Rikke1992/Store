@@ -43,7 +43,7 @@ let DropDownCart = (props) => {
                 </div>
               );
             })
-          : null}
+          : props.ofBlurDropDownMenu()}
       </div>
     );
   } else {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import CartContainer from "./Cart/CartContainer";
 import Category from "./Category/Category";
 import CheckCategoryAndQuery from "./Category/CheckCategoryAndQuery";
 import ProductQueryComponent from "./Category/Product/ProductQueryComponent";
@@ -214,6 +215,13 @@ class Wraper extends React.Component {
           path="/Category/:category/:id"
           render={() => {
             return <ProductQueryComponent />;
+          }}
+        />
+
+        <Route
+          path="/Cart"
+          render={() => {
+            return <CartContainer />;
           }}
         />
       </div>
