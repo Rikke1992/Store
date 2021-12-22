@@ -7,6 +7,7 @@ let DropDownCart = (props) => {
     props.PlusProductFoo(e.target.id);
   };
   let MinusFunc = (e) => {
+    debugger;
     props.MinusProductFoo(e.target.id);
   };
   if (props.stateOnBlure) {

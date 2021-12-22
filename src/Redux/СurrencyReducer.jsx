@@ -1,11 +1,10 @@
 let initialState = {
-    currency: "DOL",
+  currencyList: ["USD", "AUD", "JPY", "RUB"],
+  activCurrency: "USD",
 };
 
-
-
 export const authAppMeThunk = () => (dispatch) => {
-   /*  let promiseAuth = dispatch(authMeThunk());
+  /*  let promiseAuth = dispatch(authMeThunk());
 
     promiseAuth.then(() => {
         dispatch(isAuthAPP(true));
@@ -13,24 +12,24 @@ export const authAppMeThunk = () => (dispatch) => {
 };
 
 const CurrencyReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case "___":
-            {
-                let newState = { ...state };
+  switch (action.type) {
+    case "___":
+      {
+        let newState = { ...state };
 
-                return newState;
-            }
-            break;
+        return newState;
+      }
+      break;
 
-        default: {
-            return state;
-        }
+    default: {
+      return state;
     }
+  }
 };
 
 export const ___ = (__) => ({
-    type: "isAuthAPP",
-    __,
+  type: "isAuthAPP",
+  __,
 });
 
 export default CurrencyReducer;

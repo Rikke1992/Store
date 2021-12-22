@@ -7,17 +7,42 @@ import { AddToCartProductThunk } from "./../../Redux/CartReducer";
 import { ProductsCategorySelector } from "../../Selectors/ProductsSelector";
 import Product from "./Product";
 import { CartProductSelector } from "../../Selectors/CartSelector";
+import Preloader from "../../Preloader/Preloader";
 
 class ProductQueryComponent extends React.Component {
+  componentDidMount() {}
   state = {
+    options: [],
+    size: null,
     productInState: null,
     isLoading: true,
+  };
+  changeLocalStateSize = (item) => {
+    return this.setState({
+      size: item,
+    });
+  };
+  changeLocalStateForTech = (item) => {
+    //Add default value in first loading
+    if (this.state.options.length == 0) {
+      debugger;
+      return this.setState({ options: item });
+    } else {
+      //Chenge local options
+      let newStateOptions = this.state.options.map((it) => {
+        debugger;
+        return item.key == it.key ? item : it;
+      });
+      debugger;
+      return this.setState({ options: newStateOptions });
+    }
   };
   ProductInStateChange = () => {
     this.setState({
       productInState: true,
     });
   };
+
   IsLoadingChange = () => {
     this.setState({ isLoading: false });
   };
@@ -33,6 +58,10 @@ class ProductQueryComponent extends React.Component {
       return undefined;
     }
   }
+  addToCartProductFunk = (someProduct = this.findProduct()) => {
+    debugger;
+    return this.props.AddToCartProductThunk(someProduct);
+  };
   componentDidMount() {
     debugger;
     if (this.findProduct()) {
@@ -43,60 +72,42 @@ class ProductQueryComponent extends React.Component {
       return this.IsLoadingChange();
     }
   }
-  addToCartProductFunk = () => {
-    let product = this.findProduct();
-    /*   attributes: [{…}]
-brand: "Nike x Stussy"
-category: "clothes"
-description: "<p>Great sneakers for everyday use!</p>"
-gallery: (5) ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
-id: "huarache-x-stussy-le"
-inStock: true
-name: "Nike Air Huarache Le"
-prices: (5) [{…}, {…}, {…}, {…}, {…}] */
-
-    debugger;
-    /*  let { id: 0, value: 0, name: "", cateory: "", photo: ""  }=this.props.product[0]; */
-    return this.props.AddToCartProductThunk(this.findProduct());
-  };
 
   render() {
     if (this.state.isLoading) {
       debugger;
-      return <div>LOADING PLEEEEase</div>;
+      return <Preloader />;
     } else {
       debugger;
       if (this.state.productInState) {
         debugger;
         return (
           <Product
+            optionsForTechCategory={this.state.options}
+            changeLocalStateForTech={this.changeLocalStateForTech}
+            changeLocalStateSize={this.changeLocalStateSize}
+            localStateSize={this.state.size}
             product={this.findProduct()}
-            addToCartProduct={this.addToCartProductFunk}
+            addToCartProductFunk={this.addToCartProductFunk}
           />
         );
       } else {
         debugger;
-        return <QueryGetProductOfId value={this.props.match.params.id} />;
+        return (
+          <QueryGetProductOfId
+            optionsForTechCategory={this.state.options}
+            changeLocalStateForTech={this.changeLocalStateForTech}
+            changeLocalStateSize={this.changeLocalStateSize}
+            localStateSize={this.state.size}
+            value={this.props.match.params.id}
+            addToCartProductFunk={this.addToCartProductFunk}
+          />
+        );
       }
     }
-
-    /* debugger;
-    if (this.findProduct()) {
-      debugger;
-      return <Product product={"this.findProduct()"} />;
-    } else {
-      debugger;
-
-      return <QueryGetProductOfId value={this.props.match.params.id} />;
-    } */
   }
 }
 
-/* class ProductQueryComponent extends React.Component {
-  render() {
-    return <QueryGetProductOfId value={this.props.match.params.id} />;
-  }
-} */
 let mapStateToProps = (state) => {
   return {
     product: ProductsCategorySelector(state),

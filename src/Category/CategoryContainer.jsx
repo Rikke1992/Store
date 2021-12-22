@@ -3,6 +3,7 @@ import { getStateWithProductsThunk } from "./../Redux/ProductsReducer";
 import { connect } from "react-redux";
 import { ProductsCategorySelector } from "../Selectors/ProductsSelector";
 import Category from "./Category";
+import Preloader from "../Preloader/Preloader";
 
 class CategoryContainer extends React.Component {
   componentDidMount() {
@@ -15,11 +16,12 @@ class CategoryContainer extends React.Component {
   }
 
   render() {
+    debugger;
     {
       if (this.props.Products == this.props.allProducts) {
         return <Category Products={this.props.Products} />;
       } else {
-        return <div>"LOADING"</div>;
+        return <Preloader />;
       }
     }
   }

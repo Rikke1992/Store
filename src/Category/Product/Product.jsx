@@ -1,21 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Preloader from "../../Preloader/Preloader";
+import OptionsForTech from "./DisassembledProductsComponents/OptionsForTech";
+import SizeComponent from "./DisassembledProductsComponents/SizeComponent";
 import style from "./productStyle.module.css";
 
 let Product = (props) => {
-  /*   attributes: [{…}]
-brand: "Nike x Stussy"
-category: "clothes"
-description: "<p>Great sneakers for everyday use!</p>"
-gallery: (5) ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
-id: "huarache-x-stussy-le"
-inStock: true
-name: "Nike Air Huarache Le"
-prices: (5) [{…}, {…}, {…}, {…}, {…}] */
-  let { gallery, name, description, prices, attributes } = props.product;
+  let { gallery, name, description, prices, attributes, inStock, category } =
+    props.product;
+  let AddDefaultValueForClothesState = () => {
+    debugger;
+    if (attributes.length == 0) {
+      return null;
+    } else {
+      return props.changeLocalStateSize(attributes[0].items[0].id);
+    }
+  };
+  let AddDefaultValueForTechState = () => {
+    debugger;
+    if (attributes.length == 0) {
+      return null;
+    } else if (props.optionsForTechCategory.length == 0) {
+      let newState = attributes.map((item) => {
+        debugger;
+        return { key: item.id, value: item.items[0].displayValue };
+      });
+      debugger;
+      return props.changeLocalStateForTech(newState);
+    }
+  };
+
+  /* let chengeSize = (e) => {
+    debugger;
+    return props.changeLocalStateSize(e.target.id);
+  }; */
+  let AddProductToCart = () => {
+    return props.addToCartProductFunk(props.product);
+  };
+
   debugger;
-  if (!props.product) {
-    return <div>loading please</div>;
+  if (!props.product.category) {
+    return <Preloader />;
   } else {
+    {
+      /* Check the input size value */
+    }
+    {
+      category == "clothes"
+        ? AddDefaultValueForClothesState()
+        : AddDefaultValueForTechState();
+    }
     return (
       <div className={style.wraperProduct}>
         <div className={style.carouselProduct}>
@@ -34,54 +67,51 @@ prices: (5) [{…}, {…}, {…}, {…}, {…}] */
           <h1>{name}</h1>
           {description}
           <div>
-            <span>Size ore color</span>
-            {/*  <div className={"sizeOreColor"}>{attributes.map(() => {})}</div> */}
+            {category == "clothes" ? (
+              <SizeComponent {...props} />
+            ) : (
+              <OptionsForTech {...props} />
+            )}
+
+            {/* <div>
+              <h2>Size ore color</h2>
+              <div className={style.sizes}>
+                <span>{attributes[0].id} </span>
+                {attributes[0].items.map((it) => {
+                  debugger;
+                  return (
+                    <div
+                      id={it.id}
+                      onClick={chengeSize}
+                      className={
+                        it.displayValue == props.localStateSize
+                          ? style.sizesItemCheck
+                          : style.sizesItem
+                      }
+                    >
+                      {it.displayValue}
+                    </div>
+                  );
+                })}
+              </div>
+            </div> */}
             <div>
               <span>Price</span>
-              {/*      <span>{prices[0]}</span> */}
             </div>
-            <button onClick={props.addToCartProduct}>Add to Cart</button>
-            <div>
-              <p>Bla bla bla</p>
-            </div>
+
+            {/*  sheck is activ the product? */}
+            {inStock ? (
+              <button onClick={AddProductToCart}>Add to Cart</button>
+            ) : (
+              <div className={style.available}>
+                <h2>Not available</h2>
+              </div>
+            )}
           </div>
         </div>
       </div>
     );
   }
 };
-/* let a = () => {
-     <div>
-  <div>
-    {photo.map((item) => {
-      return (
-        <div id={item.photo}>
-          <img src={item.photo}></img>
-        </div>
-      );
-    })}
-  </div>
-  <div>
-    <img src={this.state.mainPhoto}></img>
-  </div>
-  <div>
-    <h1>{this.props.name}</h1>
-    <h2>{this.props.descriptions}</h2>
-    <div>
-      <span>Size ore color</span>
-      <div className={"sizeOreColor"}>
-        {this.props.size.map(() => {})}
-      </div>
-      <div>
-        <span>Price</span>
-        <span>{this.props.price}</span>
-      </div>
-      <div>Add to Cart</div>
-      <div>
-        <p>Bla bla bla</p>
-      </div>
-    </div>
-  </div>
-</div> 
-}; */
+
 export default Product;

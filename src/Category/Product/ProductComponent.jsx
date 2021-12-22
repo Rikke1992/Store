@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Preloader from "../../Preloader/Preloader";
 import { getOneProductsThunk } from "../../Redux/ProductsReducer";
 import {
   OneProductSelector,
@@ -8,6 +9,14 @@ import {
 import Product from "./Product";
 
 class ProductComponent extends React.Component {
+  /*  state = {
+    size: null,
+  };
+  changeLocalStateSize = (item) => {
+    return this.setState({
+      size: item,
+    });
+  }; */
   componentDidMount() {
     debugger;
     this.props.getOneProductsThunk(this.props.data.product);
@@ -16,10 +25,10 @@ class ProductComponent extends React.Component {
   render() {
     debugger;
     if (this.props.GetOneProduct) {
-      return <Product product={this.props.GetOneProduct} />;
+      return <Product {...this.props} product={this.props.GetOneProduct} />;
     } else {
       debugger;
-      return <span>LOADING</span>;
+      return <Preloader />;
     }
   }
 }

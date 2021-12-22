@@ -1,8 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
-import { useEffect } from "react";
-import Category from "../Category/Category";
 import CategoryContainer from "../Category/CategoryContainer";
 import ProductComponent from "../Category/Product/ProductComponent";
+import Preloader from "../Preloader/Preloader";
 
 let ass = gql`
   query getCategor($input: CategoryInput) {
@@ -27,6 +26,7 @@ const GET_PRODUCT_OF_ID = gql`
       gallery
       description
       category
+      id
       attributes {
         id
         name
@@ -100,8 +100,9 @@ export let Query = (props) => {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Preloader />;
   if (error) return <p>Error :(</p>;
+  debugger;
   return <CategoryContainer allProducts={data.category.products} data={data} />;
 };
 
@@ -112,8 +113,8 @@ export let QueryGetProductOfId = (props) => {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Preloader />;
   if (error) return <p>Error :(</p>;
   debugger;
-  return <ProductComponent oneProduct={true} data={data} />;
+  return <ProductComponent {...props} oneProduct={true} data={data} />;
 };

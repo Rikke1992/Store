@@ -13,3 +13,26 @@
 .mainPhoto img {
   max-width: 450px;
 }
+.available {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 5px;
+  background: rgb(188, 204, 196);
+}
+.sizes {
+  display: flex;
+}
+.sizesItem {
+  border: 1px solid black;
+  padding: 5px;
+}
+/* .sizesItem :hover {
+  border: 1px solid black;
+  padding: 5px;
+  background: rgb(71, 110, 91);
+} */
+.sizesItemCheck {
+  border: 1px solid black;
+  padding: 5px;
+  background: rgb(71, 110, 91);
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SmallCartContainer from "../Cart/SmallCart/SmallCartContainer";
+import CurrencyComponent from "../Currency/CurrencyComponent";
 import style from "./Menu.module.css";
 
 class Menu extends React.Component {
@@ -19,11 +20,8 @@ class Menu extends React.Component {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <div id={"USD"}>USD</div>
-              <div id={"GBP"}>GBP</div>
-              <div id={"AUD"}>AUD</div>
-              <div id={"JPY"}>JPY</div>
-              <div id={"RUB"}>RUB</div>
+              <CurrencyComponent />
+             
             </li>
             <li>
               <NavLink to="/Cart">
