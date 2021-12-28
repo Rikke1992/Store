@@ -9,14 +9,7 @@ import {
 import Product from "./Product";
 
 class ProductComponent extends React.Component {
-  /*  state = {
-    size: null,
-  };
-  changeLocalStateSize = (item) => {
-    return this.setState({
-      size: item,
-    });
-  }; */
+  
   componentDidMount() {
     debugger;
     this.props.getOneProductsThunk(this.props.data.product);

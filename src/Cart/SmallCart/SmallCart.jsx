@@ -3,12 +3,12 @@ import DropDownCart from "./DropDownCart";
 import style from "./SmallCartStyle.module.css";
 
 let SmallCart = (props) => {
-  let [stateOnBlure, ChengeStateOnBlure] = useState(false);
+  let [stateOnBlure, ChangeStateOnBlure] = useState(false);
   let onBlurDropDownMenu = () => {
-    return ChengeStateOnBlure(true);
+    return ChangeStateOnBlure(true);
   };
   let ofBlurDropDownMenu = () => {
-    return ChengeStateOnBlure(false);
+    return ChangeStateOnBlure(false);
   };
 
   debugger;

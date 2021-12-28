@@ -7,14 +7,7 @@ import style from "./productStyle.module.css";
 let Product = (props) => {
   let { gallery, name, description, prices, attributes, inStock, category } =
     props.product;
-  let AddDefaultValueForClothesState = () => {
-    debugger;
-    if (attributes.length == 0) {
-      return null;
-    } else {
-      return props.changeLocalStateSize(attributes[0].items[0].id);
-    }
-  };
+  
   let AddDefaultValueForTechState = () => {
     debugger;
     if (attributes.length == 0) {
@@ -29,10 +22,7 @@ let Product = (props) => {
     }
   };
 
-  /* let chengeSize = (e) => {
-    debugger;
-    return props.changeLocalStateSize(e.target.id);
-  }; */
+  
   let AddProductToCart = () => {
     return props.addToCartProductFunk(
       props.product,
@@ -45,12 +35,7 @@ let Product = (props) => {
     return <Preloader />;
   } else {
     {
-      /* Check the input size value */
-    }
-    {
-      category == "clothes"
-        ? AddDefaultValueForClothesState()
-        : AddDefaultValueForTechState();
+      AddDefaultValueForTechState();
     }
     return (
       <div className={style.wraperProduct}>
@@ -70,39 +55,11 @@ let Product = (props) => {
           <h1>{name}</h1>
           {description}
           <div>
-            {category == "clothes" ? (
-              <SizeComponent {...props} />
-            ) : (
-              <OptionsForTech {...props} />
-            )}
-
-            {/* <div>
-              <h2>Size ore color</h2>
-              <div className={style.sizes}>
-                <span>{attributes[0].id} </span>
-                {attributes[0].items.map((it) => {
-                  debugger;
-                  return (
-                    <div
-                      id={it.id}
-                      onClick={chengeSize}
-                      className={
-                        it.displayValue == props.localStateSize
-                          ? style.sizesItemCheck
-                          : style.sizesItem
-                      }
-                    >
-                      {it.displayValue}
-                    </div>
-                  );
-                })}
-              </div>
-            </div> */}
+            <OptionsForTech {...props} />
             <div>
               <span>Price</span>
             </div>
-
-            {/*  sheck is activ the product? */}
+            {/*  sheck is activ the product?  */}
             {inStock ? (
               <button onClick={AddProductToCart}>Add to Cart</button>
             ) : (

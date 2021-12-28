@@ -10,25 +10,19 @@ import { CartProductSelector } from "../../Selectors/CartSelector";
 import Preloader from "../../Preloader/Preloader";
 
 class ProductQueryComponent extends React.Component {
-  componentDidMount() {}
   state = {
     options: [],
-    size: null,
     productInState: null,
     isLoading: true,
   };
-  changeLocalStateSize = (item) => {
-    return this.setState({
-      size: item,
-    });
-  };
+
   changeLocalStateForTech = (item) => {
     //Add default value in first loading
     if (this.state.options.length == 0) {
       debugger;
       return this.setState({ options: item });
     } else {
-      //Chenge local options
+      //Change local options
       let newStateOptions = this.state.options.map((it) => {
         debugger;
         return item.key == it.key ? item : it;
@@ -46,6 +40,7 @@ class ProductQueryComponent extends React.Component {
   IsLoadingChange = () => {
     this.setState({ isLoading: false });
   };
+
   findProduct() {
     if (this.props.product != null) {
       return this.props.product.find((item) => {
@@ -58,8 +53,9 @@ class ProductQueryComponent extends React.Component {
       return undefined;
     }
   }
+
   addToCartProductFunk = (
-    someProduct = this.findProduct(),
+    someProduct /* = this.findProduct() */,
     optionsForTechCategory
   ) => {
     debugger;
@@ -98,7 +94,6 @@ class ProductQueryComponent extends React.Component {
           <Product
             optionsForTechCategory={this.state.options}
             changeLocalStateForTech={this.changeLocalStateForTech}
-            changeLocalStateSize={this.changeLocalStateSize}
             localStateSize={this.state.size}
             product={this.findProduct()}
             addToCartProductFunk={this.addToCartProductFunk}
@@ -110,7 +105,6 @@ class ProductQueryComponent extends React.Component {
           <QueryGetProductOfId
             optionsForTechCategory={this.state.options}
             changeLocalStateForTech={this.changeLocalStateForTech}
-            changeLocalStateSize={this.changeLocalStateSize}
             localStateSize={this.state.size}
             value={this.props.match.params.id}
             addToCartProductFunk={this.addToCartProductFunk}

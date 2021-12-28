@@ -3,20 +3,31 @@ let initialState = {
   activCurrency: "USD",
 };
 
-export const authAppMeThunk = () => (dispatch) => {
-  /*  let promiseAuth = dispatch(authMeThunk());
+let GET_CURRENCY = "GetCurrency";
+let CHANGE_CURRENCY = "ChangeCurrency";
 
-    promiseAuth.then(() => {
-        dispatch(isAuthAPP(true));
-    }); */
+export const ChangeCurrencyThunk = (currency) => (dispatch) => {
+  debugger;
+  dispatch(ChangeCurrencyAction(currency));
+};
+export const GetCurrencyThunk = (currency) => (dispatch) => {
+  debugger;
+  dispatch(GetCurrencyAction(currency));
 };
 
 const CurrencyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "___":
+    case GET_CURRENCY:
       {
         let newState = { ...state };
-
+        newState.currencyList = action.currencyArray;
+        return newState;
+      }
+      break;
+    case CHANGE_CURRENCY:
+      {
+        let newState = { ...state };
+        newState.activCurrency = action.currency;
         return newState;
       }
       break;
@@ -27,9 +38,12 @@ const CurrencyReducer = (state = initialState, action) => {
   }
 };
 
-export const ___ = (__) => ({
-  type: "isAuthAPP",
-  __,
+const GetCurrencyAction = (currencyArray) => ({
+  type: GET_CURRENCY,
+  currencyArray,
 });
-
+const ChangeCurrencyAction = (currency) => ({
+  type: CHANGE_CURRENCY,
+  currency,
+});
 export default CurrencyReducer;

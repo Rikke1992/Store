@@ -1,13 +1,25 @@
 import React from "react";
+import style from "./Currency.module.css";
 
 let CurrencyDropDown = (props) => {
+  let changeCyrrency = (e) => {
+    debugger;
+    return props.changeCurrencyFuncToProps(e.target.innerText);
+  };
   return (
     <div>
-      <div id={"USD"}>USD</div>
-      <div id={"GBP"}>GBP</div>
-      <div id={"AUD"}>AUD</div>
-      <div id={"JPY"}>JPY</div>
-      <div id={"RUB"}>RUB</div>
+      {props.CurencyListArray.map((item) => {
+        return (
+          <div
+            className={
+              props.CurencyActivItem == item ? style.activ : style.nonActiv
+            }
+            onClick={changeCyrrency}
+          >
+            {item}
+          </div>
+        );
+      })}
     </div>
   );
 };

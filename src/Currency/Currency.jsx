@@ -3,18 +3,18 @@ import { useState } from "react";
 import CurrencyDropDown from "./CurrencyDropDown";
 
 let Currency = (props) => {
-  let [onMouse, ChengeMouseSettings] = useState(false);
+  let [onMouse, ChangeMouseSettings] = useState(false);
   let onMouseFunk = () => {
-    return ChengeMouseSettings(true);
+    return ChangeMouseSettings(true);
   };
   let ofMouseFunc = () => {
-    return ChengeMouseSettings(false);
+    return ChangeMouseSettings(false);
   };
   debugger;
   return (
     <div onMouseEnter={onMouseFunk} onMouseLeave={ofMouseFunc}>
       {props.CurencyActivItem}
-      <CurrencyDropDown onMouse={onMouse} />
+      {onMouse ? <CurrencyDropDown {...props} /> : null}
     </div>
   );
 };

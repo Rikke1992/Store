@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import CategoryContainer from "../Category/CategoryContainer";
 import ProductComponent from "../Category/Product/ProductComponent";
+import CurrencyComponent from "../Currency/CurrencyComponent";
 import Preloader from "../Preloader/Preloader";
 
 let ass = gql`
@@ -16,6 +17,12 @@ let ass = gql`
         }
       }
     }
+  }
+`;
+
+let GetCurrencys = gql`
+  query Currency {
+    currencies
   }
 `;
 
@@ -92,6 +99,15 @@ const GetCategor = gql`
     }
   }
 `; */
+
+export let QueryCurrencys = (props) => {
+  const { loading, error, data } = useQuery(GetCurrencys);
+
+  if (loading) return <Preloader />;
+  if (error) return <p>Error :(</p>;
+
+  return <CurrencyComponent currencies={data.currencies} />;
+};
 
 export let Query = (props) => {
   const { loading, error, data } = useQuery(GetCategor, {

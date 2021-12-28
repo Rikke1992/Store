@@ -4,7 +4,7 @@ let SIZE = "Size";
 
 let SizeComponent = (props) => {
   let { attributes } = props.product;
-  let chengeSize = (e) => {
+  let changeSize = (e) => {
     debugger;
     return props.changeLocalStateSize(e.target.id);
   };
@@ -18,7 +18,7 @@ let SizeComponent = (props) => {
           return (
             <div
               id={it.id}
-              onClick={chengeSize}
+              onClick={changeSize}
               className={
                 it.displayValue == props.localStateSize
                   ? style.sizesItemCheck

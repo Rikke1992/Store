@@ -17,7 +17,7 @@ let OptionsForTech = (props) => {
     }
   };
  */
-  let chengeSizeExperiment = (e) => {
+  let changeSizeExperiment = (e) => {
     debugger;
 
     let newState = { key: e.target.parentNode.id, value: e.target.id };
@@ -48,7 +48,7 @@ let OptionsForTech = (props) => {
                 debugger;
                 return (
                   <div
-                    onClick={chengeSizeExperiment}
+                    onClick={changeSizeExperiment}
                     id={it.id}
                     className={
                       props.optionsForTechCategory[index].value ==
@@ -76,13 +76,13 @@ import style from "./../productStyle.module.css";
 let OptionsForTech = (props) => {
   let { attributes } = props.product;
 
-  let chengeSizeExperiment = (e) => {
+  let changeSizeExperiment = (e) => {
     debugger;
     /* optionsForTechCategory */
     let newState = { key: e.target.parentNode.id, value: e.target.id };
     return props.changeLocalStateForTech(newState);
   };
-  let chengeSize = (e) => {
+  let changeSize = (e) => {
     debugger;
     return props.changeLocalStateSize(e.target.id);
   };
@@ -104,7 +104,7 @@ let OptionsForTech = (props) => {
               __typename: "Attribute") */
                   return (
                     <div
-                      onClick={chengeSizeExperiment}
+                      onClick={changeSizeExperiment}
                       id={it.id}
                       className={
                         props.optionsForTechCategory.some((exempl) => {
@@ -142,7 +142,7 @@ let OptionsForTech = (props) => {
               {item.items.map((it) => {
                 return (
                   <div
-                    onClick={chengeSizeExperiment}
+                    onClick={changeSizeExperiment}
                     id={it.id}
                     className={
                       props.optionsForTechCategory.some((exempl) => {
