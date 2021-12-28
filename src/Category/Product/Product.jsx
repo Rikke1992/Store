@@ -34,7 +34,10 @@ let Product = (props) => {
     return props.changeLocalStateSize(e.target.id);
   }; */
   let AddProductToCart = () => {
-    return props.addToCartProductFunk(props.product);
+    return props.addToCartProductFunk(
+      props.product,
+      props.optionsForTechCategory
+    );
   };
 
   debugger;

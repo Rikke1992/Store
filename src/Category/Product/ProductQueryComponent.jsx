@@ -58,9 +58,22 @@ class ProductQueryComponent extends React.Component {
       return undefined;
     }
   }
-  addToCartProductFunk = (someProduct = this.findProduct()) => {
+  addToCartProductFunk = (
+    someProduct = this.findProduct(),
+    optionsForTechCategory
+  ) => {
     debugger;
-    return this.props.AddToCartProductThunk(someProduct);
+    let NewStateProduct = { ...someProduct };
+    debugger;
+    NewStateProduct.attributes = NewStateProduct.attributes.map(
+      (item, index) => {
+        debugger;
+        let result = { ...item };
+        result.items = optionsForTechCategory[index];
+        return result;
+      }
+    );
+    return this.props.AddToCartProductThunk(NewStateProduct);
   };
   componentDidMount() {
     debugger;
