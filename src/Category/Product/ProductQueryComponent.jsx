@@ -8,6 +8,7 @@ import { ProductsCategorySelector } from "../../Selectors/ProductsSelector";
 import Product from "./Product";
 import { CartProductSelector } from "../../Selectors/CartSelector";
 import Preloader from "../../Preloader/Preloader";
+import { indexCurrencyActiv } from "../../Selectors/CurrencySelectors";
 
 class ProductQueryComponent extends React.Component {
   state = {
@@ -94,7 +95,7 @@ class ProductQueryComponent extends React.Component {
           <Product
             optionsForTechCategory={this.state.options}
             changeLocalStateForTech={this.changeLocalStateForTech}
-            localStateSize={this.state.size}
+            indexCurrencyActiv={this.props.indexCurrencyActiv}
             product={this.findProduct()}
             addToCartProductFunk={this.addToCartProductFunk}
           />
@@ -105,7 +106,7 @@ class ProductQueryComponent extends React.Component {
           <QueryGetProductOfId
             optionsForTechCategory={this.state.options}
             changeLocalStateForTech={this.changeLocalStateForTech}
-            localStateSize={this.state.size}
+            indexCurrencyActiv={this.props.indexCurrencyActiv}
             value={this.props.match.params.id}
             addToCartProductFunk={this.addToCartProductFunk}
           />
@@ -119,6 +120,7 @@ let mapStateToProps = (state) => {
   return {
     product: ProductsCategorySelector(state),
     CartProduct: CartProductSelector(state),
+    indexCurrencyActiv: indexCurrencyActiv(state),
   };
 };
 export default compose(

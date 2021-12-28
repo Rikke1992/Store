@@ -6,3 +6,7 @@ export const CurencyList = (state) => {
 export const CurencyActiv = (state) => {
   return state.Сurrency.activCurrency;
 };
+
+export const indexCurrencyActiv = (state) => {
+  return state.Сurrency.indexCurrency;
+};

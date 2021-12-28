@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import style from "./../productStyle.module.css";
 let SIZE = "Size";
 
@@ -35,3 +35,4 @@ let SizeComponent = (props) => {
 };
 
 export default SizeComponent;
+ */

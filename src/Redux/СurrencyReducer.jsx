@@ -1,6 +1,7 @@
 let initialState = {
   currencyList: ["USD", "AUD", "JPY", "RUB"],
   activCurrency: "USD",
+  indexCurrency: 0,
 };
 
 let GET_CURRENCY = "GetCurrency";
@@ -21,6 +22,7 @@ const CurrencyReducer = (state = initialState, action) => {
       {
         let newState = { ...state };
         newState.currencyList = action.currencyArray;
+        newState.activCurrency = newState.currencyList[0];
         return newState;
       }
       break;
@@ -28,6 +30,8 @@ const CurrencyReducer = (state = initialState, action) => {
       {
         let newState = { ...state };
         newState.activCurrency = action.currency;
+        newState.indexCurrency = newState.currencyList.indexOf(action.currency);
+
         return newState;
       }
       break;

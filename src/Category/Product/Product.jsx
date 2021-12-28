@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import Preloader from "../../Preloader/Preloader";
 import OptionsForTech from "./DisassembledProductsComponents/OptionsForTech";
-import SizeComponent from "./DisassembledProductsComponents/SizeComponent";
 import style from "./productStyle.module.css";
 
 let Product = (props) => {
   let { gallery, name, description, prices, attributes, inStock, category } =
     props.product;
-  
+
   let AddDefaultValueForTechState = () => {
     debugger;
     if (attributes.length == 0) {
@@ -22,7 +21,6 @@ let Product = (props) => {
     }
   };
 
-  
   let AddProductToCart = () => {
     return props.addToCartProductFunk(
       props.product,
@@ -58,6 +56,10 @@ let Product = (props) => {
             <OptionsForTech {...props} />
             <div>
               <span>Price</span>
+              <div>
+                <div>{prices[props.indexCurrencyActiv].amount}</div>
+                <div>{prices[props.indexCurrencyActiv].currency}</div>
+              </div>
             </div>
             {/*  sheck is activ the product?  */}
             {inStock ? (
