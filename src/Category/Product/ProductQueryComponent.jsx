@@ -70,6 +70,7 @@ class ProductQueryComponent extends React.Component {
         return result;
       }
     );
+
     return this.props.AddToCartProductThunk(NewStateProduct);
   };
   componentDidMount() {

@@ -1,0 +1,11 @@
+.Cart {
+}
+.cartProduct img {
+  display: flex;
+
+  max-width: 250px;
+}
+
+.Plus img {
+  width: 50px;
+}

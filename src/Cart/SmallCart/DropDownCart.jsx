@@ -10,18 +10,31 @@ let DropDownCart = (props) => {
     debugger;
     props.MinusProductFoo(e.target.id);
   };
+  let TotalPrice = 0;
+  let Amount;
+  let TotalCurrencyFunc = () => {};
   if (props.stateOnBlure) {
     return (
       <div className={style.DropDown}>
+        <span>Total Number {props.cartProducts.value}</span>
         {props.cartProducts.products.length != 0
           ? props.cartProducts.products.map((it) => {
+              //Push activ amount
+              Amount = it.prices[props.indexCurrencyActiv].currency;
+              //Push activ TotalPrice
+              TotalPrice +=
+                it.value != 1
+                  ? it.value * it.prices[props.indexCurrencyActiv].amount
+                  : it.prices[props.indexCurrencyActiv].amount;
               debugger;
               return (
                 <div>
                   <span>My bag</span>
-                  <span> {props.cartProducts.value + "-items"} </span>
+                  <span> {it.value + "-items"} </span>
                   <div>{it.name}</div>
-                  <div>{it.prices[0].amount + " " + it.prices[0].currency}</div>
+                  <div>{it.prices[props.indexCurrencyActiv].amount}</div>
+                  <div>{it.prices[props.indexCurrencyActiv].currency}</div>
+
                   <div>
                     <img src={it.gallery[0]}></img>
                   </div>
@@ -45,6 +58,12 @@ let DropDownCart = (props) => {
               );
             })
           : props.ofBlurDropDownMenu()}
+        <div>
+          <div>
+            Total currency {Math.round(TotalPrice * 100) / 100}
+            {Amount}
+          </div>
+        </div>
       </div>
     );
   } else {

@@ -24,7 +24,8 @@ let Product = (props) => {
   let AddProductToCart = () => {
     return props.addToCartProductFunk(
       props.product,
-      props.optionsForTechCategory
+      props.optionsForTechCategory,
+      
     );
   };
 

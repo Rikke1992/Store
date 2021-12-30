@@ -3,6 +3,7 @@ let initialState = {
     /* { id: 0, value: 0, name: "", cateory: "", photo: "" } */
   ],
   value: 0,
+  totalPrice: 0,
 };
 
 const ADD_PRODUCT = "AddProduct";

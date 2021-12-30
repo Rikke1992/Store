@@ -10,3 +10,7 @@ export const CurencyActiv = (state) => {
 export const indexCurrencyActiv = (state) => {
   return state.Сurrency.indexCurrency;
 };
+
+export const totalCurrencySelector = (state) => {
+  return state.Сurrency.totalCurrency;
+};

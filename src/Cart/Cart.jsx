@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./Cart.module.css";
 
 let Cart = (props) => {
   let PlusProductFoo = (e) => {
@@ -7,25 +8,33 @@ let Cart = (props) => {
   let MinusProductFoo = (e) => {
     props.MinusProductFoo(e.target.id);
   };
+  let TotalPrice = 0;
+  let Amount;
   debugger;
   return (
-    <div>
+    <div className={style.Cart}>
       <h1>Cart</h1>
 
       {props.cartProducts.value != 0 ? (
         props.cartProducts.products.map((item) => {
+          Amount = item.prices[props.indexCurrencyActiv].currency;
+          TotalPrice +=
+            item.value != 1
+              ? item.value * item.prices[props.indexCurrencyActiv].amount
+              : item.prices[props.indexCurrencyActiv].amount;
           return (
-            <div className={"cartProduct"} id={item.id}>
+            <div className={style.cartProduct} id={item.id}>
               <div>{item.name}</div>
               <div>{item.description}</div>
               <div>
-                {item.prices[0].amount} {item.prices[0].currency}
+                <div>{item.prices[props.indexCurrencyActiv].amount}</div>
+                <div>{item.prices[props.indexCurrencyActiv].currency}</div>
               </div>
               <div>
                 <img src={item.gallery[0]}></img>
               </div>
               <div>Pieces= {item.value}</div>
-              <div>
+              <div className={style.Plus}>
                 <img
                   onClick={PlusProductFoo}
                   src={
@@ -47,6 +56,10 @@ let Cart = (props) => {
       ) : (
         <span>Cart is empty</span>
       )}
+      <div>
+        <h2>Total Currency</h2>
+        <div>{Amount}</div> {Math.round(TotalPrice * 100) / 100}
+      </div>
     </div>
   );
 };

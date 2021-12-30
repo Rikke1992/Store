@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import DropDownCart from "./DropDownCart";
 import style from "./SmallCartStyle.module.css";
 
@@ -18,8 +19,12 @@ let SmallCart = (props) => {
       onMouseLeave={ofBlurDropDownMenu}
       className={style.smallCart}
     >
-      <span>Cart</span>
-      <span>{props.cartProducts.value ? props.cartProducts.value : null}</span>
+      <NavLink to="/Cart">
+        <span>Cart</span>
+        <span>
+          {props.cartProducts.value ? props.cartProducts.value : null}
+        </span>
+      </NavLink>
       <DropDownCart
         {...props}
         stateOnBlure={stateOnBlure}

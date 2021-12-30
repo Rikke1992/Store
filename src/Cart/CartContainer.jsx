@@ -6,6 +6,7 @@ import {
   MinusProductThunk,
   PlusProductThunk,
 } from "./../Redux/CartReducer.jsx";
+import { indexCurrencyActiv } from "../Selectors/CurrencySelectors";
 
 class CartContainer extends React.Component {
   MinusProductFoo = (id) => {
@@ -28,6 +29,7 @@ class CartContainer extends React.Component {
 let MapStateToProps = (state) => {
   return {
     cartProducts: CartItemsProductSelector(state),
+    indexCurrencyActiv: indexCurrencyActiv(state),
   };
 };
 

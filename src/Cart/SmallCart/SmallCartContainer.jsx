@@ -6,15 +6,14 @@ import {
 } from "../../Selectors/CartSelector";
 import SmallCart from "./SmallCart";
 import { PlusProductThunk, MinusProductThunk } from "./../../Redux/CartReducer";
+import { indexCurrencyActiv, totalCurrencySelector } from "../../Selectors/CurrencySelectors";
 
 class SmallCartContainer extends React.Component {
   PlusProductFoo = (id) => {
-    
     this.props.PlusProductThunk(id);
   };
 
   MinusProductFoo = (id) => {
-    
     this.props.MinusProductThunk(id);
   };
   render() {
@@ -24,6 +23,7 @@ class SmallCartContainer extends React.Component {
         cartProducts={this.props.cartProducts}
         PlusProductFoo={this.PlusProductFoo}
         MinusProductFoo={this.MinusProductFoo}
+        {...this.props}
       />
     );
   }
@@ -31,6 +31,8 @@ class SmallCartContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     cartProducts: CartItemsProductSelector(state),
+    indexCurrencyActiv: indexCurrencyActiv(state),
+    totalCurrency: totalCurrencySelector(state),
   };
 };
 

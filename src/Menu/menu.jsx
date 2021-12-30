@@ -24,9 +24,8 @@ class Menu extends React.Component {
               <QueryCurrencys />
             </li>
             <li>
-              <NavLink to="/Cart">
-                <SmallCartContainer />
-              </NavLink>
+              
+              <SmallCartContainer />
             </li>
           </ul>
         </nav>
