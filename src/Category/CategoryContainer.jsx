@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { ProductsCategorySelector } from "../Selectors/ProductsSelector";
 import Category from "./Category";
 import Preloader from "../Preloader/Preloader";
+import { indexCurrencyActiv } from "../Selectors/CurrencySelectors";
 
 class CategoryContainer extends React.Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class CategoryContainer extends React.Component {
     debugger;
     {
       if (this.props.Products == this.props.allProducts) {
-        return <Category Products={this.props.Products} />;
+        return <Category Products={this.props.Products} {...this.props} />;
       } else {
         return <Preloader />;
       }
@@ -29,6 +30,7 @@ class CategoryContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     Products: ProductsCategorySelector(state),
+    indexCurrencyActiv: indexCurrencyActiv(state),
   };
 };
 export default connect(mapStateToProps, {

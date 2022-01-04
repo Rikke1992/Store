@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import DropDownCart from "./DropDownCart";
 import style from "./SmallCartStyle.module.css";
+import logoCart from "./../../Img/Vector.png";
 
 let SmallCart = (props) => {
   let [stateOnBlure, ChangeStateOnBlure] = useState(false);
@@ -20,7 +21,7 @@ let SmallCart = (props) => {
       className={style.smallCart}
     >
       <NavLink to="/Cart">
-        <span>Cart</span>
+        <img src={logoCart}></img>
         <span>
           {props.cartProducts.value ? props.cartProducts.value : null}
         </span>

@@ -24,8 +24,7 @@ let Product = (props) => {
   let AddProductToCart = () => {
     return props.addToCartProductFunk(
       props.product,
-      props.optionsForTechCategory,
-      
+      props.optionsForTechCategory
     );
   };
 
@@ -50,9 +49,9 @@ let Product = (props) => {
         <div className={style.mainPhoto}>
           <img src={gallery[0]}></img>
         </div>
-        <div>
+        <div className={style.description}>
           <h1>{name}</h1>
-          {description}
+
           <div>
             <OptionsForTech {...props} />
             <div>
@@ -70,6 +69,7 @@ let Product = (props) => {
                 <h2>Not available</h2>
               </div>
             )}
+            <div dangerouslySetInnerHTML={{ __html: description }}></div>
           </div>
         </div>
       </div>

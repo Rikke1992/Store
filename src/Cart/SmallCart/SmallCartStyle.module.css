@@ -9,10 +9,8 @@
 .smallCart {
   display: block;
   padding: 2px;
-  border: 1px solid black;
 }
 .add img {
   max-width: 25px;
   background: white;
-  border: 1px solid black;
 }

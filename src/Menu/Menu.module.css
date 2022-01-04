@@ -1,11 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
+.menu {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 120%;
+  margin-left: 101px;
+  margin-right: 101px;
+}
 .menu ul {
-  background: rgb(209, 219, 209);
+  padding: auto;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.menu a,
+ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  color: #1d1f22;
 }
 
 .category img {
   max-height: 150px;
+}
+
+.currencyAndCurt {
+  display: flex;
+  padding-bottom: 32px;
+}
+.SmallCartContainer {
+  padding-left: 22px;
+}
+.category {
+  width: 234px;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 16px 32px 16px;
+}
+
+.home {
+  width: 13.99%;
+  padding-bottom: 24px;
+}
+.active a {
+  color: green;
+  padding-bottom: 30px;
+  border-bottom: green 2px solid;
 }

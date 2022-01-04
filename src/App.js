@@ -7,7 +7,7 @@ import { Query } from "./Query/Query";
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="APP">
         <Menu />
         <Wraper />
       </div>

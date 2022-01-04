@@ -4,49 +4,43 @@
   width: 69%;
   margin: 80px 219px 72px 100px;
 }
-
 .carouselProduct {
   display: flex;
   flex-direction: column;
   margin-right: 40px;
-}
-.carouselProduct div {
-  display: block;
-  width: 79px;
-  height: 80px;
-}
-.carouselProduct img {
-  width: 100%;
+  div {
+    display: block;
+    width: 79px;
+    height: 80px;
+  }
+  img {
+    width: 100%;
+  }
 }
 
 .mainPhoto {
   max-width: 60.87%;
   margin-right: 100px;
+  img {
+    width: 100%;
+  }
 }
-.mainPhoto img {
-  width: 100%;
-}
-
 .description {
   max-width: 29%;
 }
-
 .available {
   display: inline-block;
   border: 1px solid black;
   padding: 5px;
-  background: #bcccc4;
+  background: rgb(188, 204, 196);
 }
-
 .sizes {
   display: flex;
 }
-
 .sizesItem {
   border: 1px solid black;
   padding: 5px;
 }
-
 /* .sizesItem :hover {
   border: 1px solid black;
   padding: 5px;
@@ -55,5 +49,5 @@
 .sizesItemCheck {
   border: 1px solid black;
   padding: 5px;
-  background: #476e5b;
+  background: rgb(71, 110, 91);
 }

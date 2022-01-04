@@ -1,10 +1,37 @@
+.categoryWraper {
+  margin: 80px 100px 190px 100px;
+}
+
 .category {
-  background: rgb(187, 200, 187);
+  color: #1d1f22;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
+.category span {
+  font-weight: 300;
+  color: #1d1f22;
+}
+.category .prices h2 {
+  font-weight: 500;
+  color: #1d1f22;
+}
+.category .product {
+  width: 33%;
+  max-height: 10.69%;
+  max-width: 386px;
+  display: flex;
+}
+.category .product img {
+  max-width: 354px;
+  width: 90%;
+  overflow: hidden;
+}
+.category a {
+  text-decoration: none;
+}
 
-.category img {
-  max-height: 150px;
+.nameOfCategory {
+  font-size: 42px;
+  margin-bottom: 103px;
 }
