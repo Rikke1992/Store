@@ -1,7 +1,22 @@
 .activ {
-  background: rgb(105, 189, 192);
+  background: #69bdc0;
 }
 
 .nonActiv {
-  background: rgb(255, 255, 255);
+  background: white;
+}
+
+.curencyContainer {
+  display: flex;
+}
+.curencyContainer img {
+  align-items: center;
+  padding-left: 10px;
+  width: 6px;
+  height: 3px;
+}
+
+.currencyDropDown {
+  display: block;
+  position: fixed;
 }

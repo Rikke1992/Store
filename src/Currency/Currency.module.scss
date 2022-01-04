@@ -1,0 +1,20 @@
+.activ {
+  background: rgb(105, 189, 192);
+}
+
+.nonActiv {
+  background: rgb(255, 255, 255);
+}
+.curencyContainer {
+  display: flex;
+  img {
+    align-items: center;
+    padding-left: 10px;
+    width: 6px;
+    height: 3px;
+  }
+}
+.currencyDropDown {
+  display: block;
+  position: fixed;
+}

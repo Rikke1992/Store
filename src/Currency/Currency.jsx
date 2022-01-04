@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import CurrencyDropDown from "./CurrencyDropDown";
+import ButtonBottom from "./../Img/ButtonBottom.png";
+import style from "./Currency.module.css";
 
 let Currency = (props) => {
   let [onMouse, ChangeMouseSettings] = useState(false);
@@ -12,8 +14,13 @@ let Currency = (props) => {
   };
   debugger;
   return (
-    <div onMouseEnter={onMouseFunk} onMouseLeave={ofMouseFunc}>
+    <div
+      onMouseEnter={onMouseFunk}
+      onMouseLeave={ofMouseFunc}
+      className={style.curencyContainer}
+    >
       {props.CurencyActivItem}
+      <img src={ButtonBottom}></img>
       {onMouse ? <CurrencyDropDown {...props} /> : null}
     </div>
   );

@@ -13,7 +13,7 @@ let Category = (props) => {
           return (
             <div className={style.product}>
               <NavLink to={`/Category/${item.category}/${item.id}`}>
-                <div>
+                <div className={style.categoryProductPhoto}>
                   <img src={item.gallery[0]}></img>
                 </div>
                 <div>

@@ -6,6 +6,7 @@ import { QueryCurrencys } from "../Query/Query";
 import style from "./Menu.module.css";
 import logoHome from "./../Img/a-logo.png";
 
+
 class Menu extends React.Component {
   state = {
     category: null,

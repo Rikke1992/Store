@@ -4,8 +4,10 @@
 .category {
   color: #1d1f22;
   display: flex;
+
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   span {
     font-weight: 300;
     color: #1d1f22;
@@ -22,9 +24,10 @@
     max-width: 386px;
 
     display: flex;
+  }
+  .categoryProductPhoto {
     img {
-      max-width: 354px;
-      width: 90%;
+      width: 100%;
       overflow: hidden;
     }
   }

@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .category span {
   font-weight: 300;
@@ -22,9 +23,8 @@
   max-width: 386px;
   display: flex;
 }
-.category .product img {
-  max-width: 354px;
-  width: 90%;
+.category .categoryProductPhoto img {
+  width: 100%;
   overflow: hidden;
 }
 .category a {

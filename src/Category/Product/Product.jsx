@@ -38,9 +38,9 @@ let Product = (props) => {
     return (
       <div className={style.wraperProduct}>
         <div className={style.carouselProduct}>
-          {gallery.map((item) => {
+          {gallery.map((item, index) => {
             return (
-              <div id={item}>
+              <div id={index}>
                 <img src={item}></img>
               </div>
             );
@@ -51,21 +51,22 @@ let Product = (props) => {
         </div>
         <div className={style.description}>
           <h1>{name}</h1>
-
           <div>
             <OptionsForTech {...props} />
-            <div>
-              <span>Price</span>
-              <div>
-                <div>{prices[props.indexCurrencyActiv].amount}</div>
+            <div className={style.price}>
+              <span>Price:</span>
+              <div className={style.priceValue}>
                 <div>{prices[props.indexCurrencyActiv].currency}</div>
+                <div>{prices[props.indexCurrencyActiv].amount}</div>
               </div>
             </div>
             {/*  sheck is activ the product?  */}
             {inStock ? (
-              <button onClick={AddProductToCart}>Add to Cart</button>
+              <div className={style.buttonAddCart} onClick={AddProductToCart}>
+                Add to Cart
+              </div>
             ) : (
-              <div className={style.available}>
+              <div className={style.notAvailable}>
                 <h2>Not available</h2>
               </div>
             )}

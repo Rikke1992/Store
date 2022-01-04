@@ -1,5 +1,6 @@
 import React from "react";
-import style from "./Currency.module.css";
+import style from "./../Currency/Currency.module.css";
+
 
 let CurrencyDropDown = (props) => {
   let changeCyrrency = (e) => {
@@ -7,7 +8,7 @@ let CurrencyDropDown = (props) => {
     return props.changeCurrencyFuncToProps(e.target.innerText);
   };
   return (
-    <div>
+    <div className={style.currencyDropDown}>
       {props.CurencyListArray.map((item) => {
         return (
           <div

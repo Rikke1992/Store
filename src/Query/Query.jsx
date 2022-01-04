@@ -4,22 +4,6 @@ import ProductComponent from "../Category/Product/ProductComponent";
 import CurrencyComponent from "../Currency/CurrencyComponent";
 import Preloader from "../Preloader/Preloader";
 
-let ass = gql`
-  query getCategor($input: CategoryInput) {
-    category(input: { title: $input }) {
-      name
-      products {
-        name
-        gallery
-        prices {
-          currency
-          amount
-        }
-      }
-    }
-  }
-`;
-
 let GetCurrencys = gql`
   query Currency {
     currencies
@@ -83,22 +67,6 @@ const GetCategor = gql`
     }
   }
 `;
-
-/* const GetCategor = gql`
-  query getCategor($input: CategoryInput) {
-    category(input: $input) {
-      name
-      products {
-        name
-        gallery
-        prices {
-          currency
-          amount
-        }
-      }
-    }
-  }
-`; */
 
 export let QueryCurrencys = (props) => {
   const { loading, error, data } = useQuery(GetCurrencys);

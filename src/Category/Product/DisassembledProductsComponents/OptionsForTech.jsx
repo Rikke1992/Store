@@ -34,7 +34,6 @@ let OptionsForTech = (props) => {
   if (attributes.length != 0) {
     return (
       <div className={style.sizes}>
-        <h2>Options</h2>
         {attributes.map((item, index) => {
           let itemName = item.name;
           debugger;
@@ -42,25 +41,27 @@ let OptionsForTech = (props) => {
             return <Preloader />;
           }
           return (
-            <div id={item.name}>
-              <span>{item.name} </span>
-              {item.items.map((it) => {
-                debugger;
-                return (
-                  <div
-                    onClick={changeSizeExperiment}
-                    id={it.id}
-                    className={
-                      props.optionsForTechCategory[index].value ==
-                      it.displayValue
-                        ? style.sizesItemCheck
-                        : style.sizesItem
-                    }
-                  >
-                    {it.displayValue}
-                  </div>
-                );
-              })}
+            <div id={item.name} className={style.product}>
+              <span>{item.name}: </span>
+              <div className={style.itemProduct} id={item.name}>
+                {item.items.map((it) => {
+                  debugger;
+                  return (
+                    <div
+                      onClick={changeSizeExperiment}
+                      id={it.id}
+                      className={
+                        props.optionsForTechCategory[index].value ==
+                        it.displayValue
+                          ? style.sizesItemCheck
+                          : style.sizesItem
+                      }
+                    >
+                      {it.displayValue}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           );
         })}
