@@ -4,7 +4,6 @@ import { Query } from "../Query/Query";
 
 class WithRouterComponentForCategory extends React.Component {
   render() {
-    debugger;
     return <Query value={this.props.match.params.category} />;
   }
 }

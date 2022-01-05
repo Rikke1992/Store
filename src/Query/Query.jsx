@@ -3,6 +3,7 @@ import CategoryContainer from "../Category/CategoryContainer";
 import ProductComponent from "../Category/Product/ProductComponent";
 import CurrencyComponent from "../Currency/CurrencyComponent";
 import Preloader from "../Preloader/Preloader";
+import style from "./../Currency/Currency.module.css";
 
 let GetCurrencys = gql`
   query Currency {
@@ -71,7 +72,12 @@ const GetCategor = gql`
 export let QueryCurrencys = (props) => {
   const { loading, error, data } = useQuery(GetCurrencys);
 
-  if (loading) return <Preloader />;
+  if (loading)
+    return (
+      <div className={style.queryCurrencyLoading}>
+        <span>Loading</span>
+      </div>
+    );
   if (error) return <p>Error :(</p>;
 
   return <CurrencyComponent currencies={data.currencies} />;
@@ -86,7 +92,6 @@ export let Query = (props) => {
 
   if (loading) return <Preloader />;
   if (error) return <p>Error :(</p>;
-  debugger;
   return <CategoryContainer allProducts={data.category.products} data={data} />;
 };
 
@@ -99,6 +104,5 @@ export let QueryGetProductOfId = (props) => {
 
   if (loading) return <Preloader />;
   if (error) return <p>Error :(</p>;
-  debugger;
   return <ProductComponent {...props} oneProduct={true} data={data} />;
 };

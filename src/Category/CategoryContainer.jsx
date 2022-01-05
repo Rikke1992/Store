@@ -17,7 +17,6 @@ class CategoryContainer extends React.Component {
   }
 
   render() {
-    debugger;
     {
       if (this.props.Products == this.props.allProducts) {
         return <Category Products={this.props.Products} {...this.props} />;

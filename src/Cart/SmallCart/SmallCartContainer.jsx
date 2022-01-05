@@ -6,7 +6,10 @@ import {
 } from "../../Selectors/CartSelector";
 import SmallCart from "./SmallCart";
 import { PlusProductThunk, MinusProductThunk } from "./../../Redux/CartReducer";
-import { indexCurrencyActiv, totalCurrencySelector } from "../../Selectors/CurrencySelectors";
+import {
+  indexCurrencyActiv,
+  totalCurrencySelector,
+} from "../../Selectors/CurrencySelectors";
 
 class SmallCartContainer extends React.Component {
   PlusProductFoo = (id) => {
@@ -17,7 +20,6 @@ class SmallCartContainer extends React.Component {
     this.props.MinusProductThunk(id);
   };
   render() {
-    debugger;
     return (
       <SmallCart
         cartProducts={this.props.cartProducts}

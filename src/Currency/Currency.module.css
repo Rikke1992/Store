@@ -1,5 +1,6 @@
 .activ {
-  background: #69bdc0;
+  background: #1d1f22;
+  color: white;
 }
 
 .nonActiv {
@@ -15,8 +16,18 @@
   width: 6px;
   height: 3px;
 }
+.curencyContainer span {
+  width: 34px;
+}
 
 .currencyDropDown {
   display: block;
   position: fixed;
+}
+
+.queryCurrencyLoading {
+  width: 50px;
+}
+.queryCurrencyLoading span {
+  font-size: 14px;
 }

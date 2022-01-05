@@ -1,0 +1,125 @@
+.DropDown {
+  right: 87px;
+  position: fixed;
+  display: block;
+  width: 22.22%;
+  background: #81a8b8;
+}
+.DropDown img {
+  max-width: 150px;
+}
+
+.DropDownHeaderInfo {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 160%;
+}
+.DropDownHeaderInfo span {
+  align-self: center;
+}
+
+.CartitemWraper {
+  width: 41.84%;
+  display: flex;
+  flex-direction: column;
+}
+.CartitemWraper .itemName {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.cartItems {
+  display: flex;
+  margin: 23px 16px 41px 16px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.curencyBlock {
+  display: flex;
+  margin-bottom: 27px;
+}
+
+.attributesItem {
+  display: flex;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.attributesItem .attributesItemValue {
+  margin-left: 8px;
+}
+.attributesItem .attributesItemValue span {
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  padding: 6px;
+}
+
+.addBlock {
+  margin-left: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 24px;
+}
+.addBlock .addBlockPlus,
+.addBlock .addBlockMinus {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  width: 24px;
+  border: 1px solid #1d1f22;
+}
+.addBlock .addBlockPlus span,
+.addBlock .addBlockMinus span {
+  margin: 0 auto;
+}
+.addBlock .addBlockPlus:active,
+.addBlock .addBlockMinus:active {
+  box-shadow: 0px 0px 2px 2px #9b9b9b;
+}
+.addBlock .valueItem {
+  margin: 0 auto;
+}
+
+.itemPhoto {
+  margin-left: 10px;
+  width: 105px;
+  height: 137px;
+}
+.itemPhoto img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 0 20px 35px 16px;
+}

@@ -16,7 +16,6 @@ class CartContainer extends React.Component {
     this.props.PlusProductThunk(id);
   };
   render() {
-    debugger;
     return (
       <Cart
         {...this.props}

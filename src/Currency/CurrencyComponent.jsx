@@ -15,9 +15,11 @@ class CurrencyComponent extends React.Component {
     return this.props.ChangeCurrencyThunk(currency);
   };
   render() {
-    debugger;
     return (
-      <Currency {...this.props} changeCurrencyFuncToProps={this.changeCurrencyFunc} />
+      <Currency
+        {...this.props}
+        changeCurrencyFuncToProps={this.changeCurrencyFunc}
+      />
     );
   }
 }

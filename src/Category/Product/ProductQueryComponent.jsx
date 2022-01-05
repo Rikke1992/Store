@@ -20,15 +20,12 @@ class ProductQueryComponent extends React.Component {
   changeLocalStateForTech = (item) => {
     //Add default value in first loading
     if (this.state.options.length == 0) {
-      debugger;
       return this.setState({ options: item });
     } else {
       //Change local options
       let newStateOptions = this.state.options.map((it) => {
-        debugger;
         return item.key == it.key ? item : it;
       });
-      debugger;
       return this.setState({ options: newStateOptions });
     }
   };
@@ -45,12 +42,9 @@ class ProductQueryComponent extends React.Component {
   findProduct() {
     if (this.props.product != null) {
       return this.props.product.find((item) => {
-        debugger;
-
         return item.id == this.props.match.params.id;
       });
     } else {
-      debugger;
       return undefined;
     }
   }
@@ -59,12 +53,9 @@ class ProductQueryComponent extends React.Component {
     someProduct /* = this.findProduct() */,
     optionsForTechCategory
   ) => {
-    debugger;
     let NewStateProduct = { ...someProduct };
-    debugger;
     NewStateProduct.attributes = NewStateProduct.attributes.map(
       (item, index) => {
-        debugger;
         let result = { ...item };
         result.items = optionsForTechCategory[index];
         return result;
@@ -74,11 +65,9 @@ class ProductQueryComponent extends React.Component {
     return this.props.AddToCartProductThunk(NewStateProduct);
   };
   componentDidMount() {
-    debugger;
     if (this.findProduct()) {
       this.ProductInStateChange();
       this.IsLoadingChange();
-      debugger;
     } else {
       return this.IsLoadingChange();
     }
@@ -86,12 +75,9 @@ class ProductQueryComponent extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-      debugger;
       return <Preloader />;
     } else {
-      debugger;
       if (this.state.productInState) {
-        debugger;
         return (
           <Product
             optionsForTechCategory={this.state.options}
@@ -102,7 +88,6 @@ class ProductQueryComponent extends React.Component {
           />
         );
       } else {
-        debugger;
         return (
           <QueryGetProductOfId
             optionsForTechCategory={this.state.options}

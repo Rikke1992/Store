@@ -13,19 +13,16 @@ const MINUS_PRODUCT = "MinusProduct";
 
 export const AddToCartProductThunk = (product) => {
   return (dispatch) => {
-    debugger;
     dispatch(AddProductDispatch(product));
   };
 };
 export const MinusProductThunk = (id) => {
   return (dispatch) => {
-    debugger;
     dispatch(MinusProductDispatch(id));
   };
 };
 export const PlusProductThunk = (id) => {
   return (dispatch) => {
-    debugger;
     dispatch(PlusProductDispatch(id));
   };
 };
@@ -34,35 +31,27 @@ const CartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PRODUCT:
       {
-        debugger;
         let newState = {
           ...state,
         };
-        debugger;
         let someIdentical = newState.products.some(
           (item) => item.id == action.product.id
         );
         if (someIdentical) {
-          debugger;
           newState.products = newState.products.map((item) => {
             if (item.id === action.product.id) {
-              debugger;
               ++newState.value;
               ++item.value;
               return item;
             } else {
-              debugger;
               return item;
             }
           });
         } else {
-          debugger;
           ++newState.value;
           newState.products.push({ ...action.product, value: 1 });
-          debugger;
         }
 
-        debugger;
         return newState;
       }
       break;

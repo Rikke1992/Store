@@ -9,18 +9,13 @@ import {
 import Product from "./Product";
 
 class ProductComponent extends React.Component {
-  
   componentDidMount() {
-    debugger;
     this.props.getOneProductsThunk(this.props.data.product);
-    debugger;
   }
   render() {
-    debugger;
     if (this.props.GetOneProduct) {
       return <Product {...this.props} product={this.props.GetOneProduct} />;
     } else {
-      debugger;
       return <Preloader />;
     }
   }

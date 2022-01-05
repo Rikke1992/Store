@@ -5,12 +5,12 @@ import style from "./../productStyle.module.css";
 let OptionsForTech = (props) => {
   let { attributes } = props.product;
   /*  let foo = () => {
-    debugger;
+    ;
     if (attributes.length == 0) {
       return null;
     } else {
       let newState = attributes.map((item) => {
-        debugger;
+        ;
         return { key: item.id, value: item.items.value };
       });
       return props.changeLocalStateForTech(newState);
@@ -18,8 +18,6 @@ let OptionsForTech = (props) => {
   };
  */
   let changeSizeExperiment = (e) => {
-    debugger;
-
     let newState = { key: e.target.parentNode.id, value: e.target.id };
     return props.changeLocalStateForTech(newState);
   };
@@ -27,7 +25,6 @@ let OptionsForTech = (props) => {
     let result = props.optionsForTechCategory.some((exempl) => {
       return name == exempl.key && exempl.value == obj.displayValue;
     });
-    debugger;
     return result;
   };
 
@@ -36,7 +33,6 @@ let OptionsForTech = (props) => {
       <div className={style.sizes}>
         {attributes.map((item, index) => {
           let itemName = item.name;
-          debugger;
           if (props.optionsForTechCategory.length == 0) {
             return <Preloader />;
           }
@@ -45,7 +41,6 @@ let OptionsForTech = (props) => {
               <span>{item.name}: </span>
               <div className={style.itemProduct} id={item.name}>
                 {item.items.map((it) => {
-                  debugger;
                   return (
                     <div
                       onClick={changeSizeExperiment}

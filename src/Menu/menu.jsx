@@ -6,13 +6,11 @@ import { QueryCurrencys } from "../Query/Query";
 import style from "./Menu.module.css";
 import logoHome from "./../Img/a-logo.png";
 
-
 class Menu extends React.Component {
   state = {
     category: null,
   };
   changeCategory = (e) => {
-    debugger;
     let value = e.target.innerText;
     return (this.state = { category: value });
   };

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
 .menu {
+  position: relative;
   font-family: Raleway;
   font-style: normal;
   font-weight: normal;
@@ -9,7 +10,6 @@
   margin-right: 101px;
 }
 .menu ul {
-  padding: auto;
   display: flex;
   flex-flow: row;
   align-items: center;

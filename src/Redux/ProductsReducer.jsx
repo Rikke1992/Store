@@ -4,7 +4,6 @@ const GET_ONE_PRODUCT = "getOneProduct";
 
 export const getStateWithProductsThunk = (array) => {
   return (dispatch) => {
-    debugger;
     dispatch(getStateWithProducts(array));
   };
 };
@@ -20,7 +19,6 @@ const ProductsReducer = (state = initialState, action) => {
       {
         let newState = { ...state };
         newState.product = action.product;
-        debugger;
         console.log("newState>>>>>>" + newState);
         return newState;
       }

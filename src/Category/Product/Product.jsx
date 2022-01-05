@@ -8,15 +8,12 @@ let Product = (props) => {
     props.product;
 
   let AddDefaultValueForTechState = () => {
-    debugger;
     if (attributes.length == 0) {
       return null;
     } else if (props.optionsForTechCategory.length == 0) {
       let newState = attributes.map((item) => {
-        debugger;
         return { key: item.id, value: item.items[0].displayValue };
       });
-      debugger;
       return props.changeLocalStateForTech(newState);
     }
   };
@@ -28,7 +25,6 @@ let Product = (props) => {
     );
   };
 
-  debugger;
   if (!props.product.category) {
     return <Preloader />;
   } else {

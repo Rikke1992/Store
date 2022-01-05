@@ -1,9 +1,13 @@
 import React from "react";
 import Spiner from "./Spinner-1s-200px.gif";
+import style from "./preloader.module.css";
+
 const Preloader = () => {
   return (
-    <div>
-      <img src={Spiner}></img>
+    <div className={style.preloader}>
+      <div>
+        <img src={Spiner}></img>
+      </div>
     </div>
   );
 };

@@ -10,7 +10,6 @@ let Cart = (props) => {
   };
   let TotalPrice = 0;
   let Amount;
-  debugger;
   return (
     <div className={style.Cart}>
       <h1>Cart</h1>

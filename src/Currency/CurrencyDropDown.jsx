@@ -1,10 +1,8 @@
 import React from "react";
 import style from "./../Currency/Currency.module.css";
 
-
 let CurrencyDropDown = (props) => {
   let changeCyrrency = (e) => {
-    debugger;
     return props.changeCurrencyFuncToProps(e.target.innerText);
   };
   return (

@@ -2,18 +2,15 @@ let initialState = {
   currencyList: ["USD", "AUD", "JPY", "RUB"],
   activCurrency: "USD",
   indexCurrency: 0,
-  
 };
 
 let GET_CURRENCY = "GetCurrency";
 let CHANGE_CURRENCY = "ChangeCurrency";
 
 export const ChangeCurrencyThunk = (currency) => (dispatch) => {
-  debugger;
   dispatch(ChangeCurrencyAction(currency));
 };
 export const GetCurrencyThunk = (currency) => (dispatch) => {
-  debugger;
   dispatch(GetCurrencyAction(currency));
 };
 
@@ -32,7 +29,7 @@ const CurrencyReducer = (state = initialState, action) => {
         let newState = { ...state };
         newState.activCurrency = action.currency;
         newState.indexCurrency = newState.currencyList.indexOf(action.currency);
-       
+
         return newState;
       }
       break;

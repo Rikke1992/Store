@@ -4,7 +4,6 @@ import style from "./Category.module.css";
 
 let Category = (props) => {
   let category = props.Products[0].category;
-  debugger;
   return (
     <div className={style.categoryWraper}>
       <div className={style.nameOfCategory}>{category.toUpperCase()}</div>

@@ -13,7 +13,6 @@ let SmallCart = (props) => {
     return ChangeStateOnBlure(false);
   };
 
-  debugger;
   return (
     <div
       onMouseEnter={onBlurDropDownMenu}
@@ -22,9 +21,12 @@ let SmallCart = (props) => {
     >
       <NavLink to="/Cart">
         <img src={logoCart}></img>
-        <span>
-          {props.cartProducts.value ? props.cartProducts.value : null}
-        </span>
+
+        {props.cartProducts.value ? (
+          <div className={style.smallCartSpan}>
+            <span>{props.cartProducts.value}</span>
+          </div>
+        ) : null}
       </NavLink>
       <DropDownCart
         {...props}

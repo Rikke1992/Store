@@ -1,5 +1,4 @@
 export const CurencyList = (state) => {
-  debugger;
   return state.Сurrency.currencyList;
 };
 

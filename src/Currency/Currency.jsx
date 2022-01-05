@@ -12,14 +12,13 @@ let Currency = (props) => {
   let ofMouseFunc = () => {
     return ChangeMouseSettings(false);
   };
-  debugger;
   return (
     <div
       onMouseEnter={onMouseFunk}
       onMouseLeave={ofMouseFunc}
       className={style.curencyContainer}
     >
-      {props.CurencyActivItem}
+      <span> {props.CurencyActivItem}</span>
       <img src={ButtonBottom}></img>
       {onMouse ? <CurrencyDropDown {...props} /> : null}
     </div>
