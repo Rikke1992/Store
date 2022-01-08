@@ -8,7 +8,6 @@
   line-height: 120%;
   margin-left: 101px;
   margin-right: 101px;
-  
 }
 .menu ul {
   display: flex;
@@ -31,7 +30,7 @@ ul {
 
 .currencyAndCurt {
   display: flex;
-  margin-top: 30px;
+  margin-top: 45px;
   padding-bottom: 32px;
 }
 .SmallCartContainer {
@@ -49,6 +48,12 @@ ul {
   width: 13.99%;
   margin-top: 30px;
   padding-bottom: 24px;
+}
+
+.home a :active {
+  background-color: rgb(155, 155, 155);
+  box-shadow: 0 0 2px 2px rgb(155, 155, 155);
+  border-radius: 15px;
 }
 .active a {
   color: green;

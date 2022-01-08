@@ -1,4 +1,6 @@
 .DropDown {
+  opacity: 1;
+  transition: all 2s ease;
   right: 87px;
   position: fixed;
   display: block;
@@ -8,8 +10,17 @@
   padding-right: 16px;
   background: white;
   z-index: 4;
-  overflow-y: hidden;
+  overflow-y: auto;
+  height: 80%;
   margin-right: calc(-1 * (100vw - 100%));
+}
+.DropDown::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 10px;
+}
+.DropDown::-webkit-scrollbar-thumb {
+  background: #9b9b9b;
+  border-radius: 10px;
 }
 .DropDown img {
   max-width: 150px;
