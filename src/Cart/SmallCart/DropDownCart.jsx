@@ -37,7 +37,7 @@ let DropDownCart = (props) => {
                       <div>{it.prices[props.indexCurrencyActiv].currency}</div>
                       <div>{it.prices[props.indexCurrencyActiv].amount}</div>
                     </div>
-                    <div>
+                    <div className={style.attributesBlock}>
                       {it.attributes.map((attributesItem) => {
                         return (
                           <div className={style.attributesItem}>

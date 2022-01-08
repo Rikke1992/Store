@@ -8,6 +8,7 @@
   line-height: 120%;
   margin-left: 101px;
   margin-right: 101px;
+  font-weight: 600;
 }
 .menu ul {
   display: flex;
@@ -56,7 +57,9 @@ ul {
   border-radius: 15px;
 }
 .active a {
-  color: green;
+  color: #5ece7b;
   padding-bottom: 30px;
-  border-bottom: green 2px solid;
+  border-bottom: 2px solid #5ece7b;
+  opacity: 1;
+  transition: all 0.5s ease;
 }

@@ -1,19 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SmallCartContainer from "../Cart/SmallCart/SmallCartContainer";
-import CurrencyComponent from "../Currency/CurrencyComponent";
 import { QueryCurrencys } from "../Query/Query";
 import style from "./Menu.module.css";
 import logoHome from "./../Img/a-logo.png";
+import { connect } from "react-redux";
+import { CategorytSelector } from "../Selectors/ProductsSelector";
 
 class Menu extends React.Component {
-  state = {
-    category: null,
-  };
-  changeCategory = (e) => {
-    let value = e.target.innerText;
-    return (this.state = { category: value });
-  };
   render() {
     return (
       <div className={style.menu}>
@@ -22,17 +16,17 @@ class Menu extends React.Component {
             <div className={style.category}>
               <div
                 className={
-                  this.state.category == "clothes" ? style.active : null
+                  this.props.category == "clothes" ? style.active : null
                 }
               >
-                <li onClick={this.changeCategory}>
+                <li>
                   <NavLink to="/category/clothes">CLOTHES</NavLink>
                 </li>
               </div>
               <div
-                className={this.state.category == "tech" ? style.active : null}
+                className={this.props.category == "tech" ? style.active : null}
               >
-                <li onClick={this.changeCategory}>
+                <li>
                   <NavLink to="/category/tech">TECH</NavLink>
                 </li>
               </div>
@@ -58,4 +52,9 @@ class Menu extends React.Component {
     );
   }
 }
-export default Menu;
+let mapStateToProps = (state) => {
+  return {
+    category: CategorytSelector(state),
+  };
+};
+export default connect(mapStateToProps, {})(Menu);

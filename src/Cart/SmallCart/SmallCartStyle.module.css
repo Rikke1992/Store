@@ -2,6 +2,7 @@
   position: relative;
   display: block;
   padding: 2px;
+  width: 24px;
 }
 .smallCart .smallCartSpan span {
   position: absolute;

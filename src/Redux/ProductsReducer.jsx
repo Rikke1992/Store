@@ -1,4 +1,9 @@
-let initialState = { product: null, onChange: false, OneProduct: null };
+let initialState = {
+  product: null,
+  onChange: false,
+  OneProduct: null,
+  category: null,
+};
 const GET_STATE_WITH_PRODUCTS = "getStateWithProducts";
 const GET_ONE_PRODUCT = "getOneProduct";
 
@@ -19,7 +24,8 @@ const ProductsReducer = (state = initialState, action) => {
       {
         let newState = { ...state };
         newState.product = action.product;
-        console.log("newState>>>>>>" + newState);
+        newState.category = newState.product[0].category;
+
         return newState;
       }
       break;
@@ -28,7 +34,9 @@ const ProductsReducer = (state = initialState, action) => {
       {
         let newState = { ...state };
         newState.OneProduct = action.product;
-        console.log("newState>>>>>>" + newState);
+
+        newState.category = newState.OneProduct.category;
+
         return newState;
       }
       break;
