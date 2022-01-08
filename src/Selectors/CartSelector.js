@@ -4,3 +4,7 @@ export const CartProductSelector = (state) => {
 export const CartItemsProductSelector = (state) => {
   return state.Cart;
 };
+
+export const DropDownCheckSelector = (state) => {
+  return state.Cart.dropDownCart;
+};

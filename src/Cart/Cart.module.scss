@@ -1,0 +1,138 @@
+.Cart {
+  margin: 5.55% 16.8% 3.75% 6.94%;
+  h1 {
+    margin-bottom: 59px;
+  }
+}
+.cartProduct {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+  display: flex;
+  .cartProductFirstBlock {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .cartProductSecondBlock {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  h2 {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    padding-bottom: 16px;
+  }
+  .currency {
+    padding: 12px 0;
+    display: flex;
+  }
+  img {
+    display: flex;
+    max-width: 250px;
+  }
+  .attributesBlock {
+    display: inline-block;
+    margin-top: 12px;
+    .attributesItem {
+      display: flex;
+      justify-content: start;
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 160%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .attributesItemValue {
+        margin-left: 8px;
+
+        span {
+          border: 1px solid #1d1f22;
+          box-sizing: border-box;
+          padding: 10px;
+        }
+      }
+    }
+  }
+  .addBlock {
+    margin-right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .valueItem {
+      display: flex;
+      align-self: center;
+      font-family: Raleway;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 160%;
+    }
+    .addBlockPlus {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #000;
+      background: linear-gradient(#000, #000), linear-gradient(#000, #000), #fff;
+      background-position: center;
+      background-size: 50% 1px, 1px 50%;
+      background-repeat: no-repeat;
+      &:active {
+        background: linear-gradient(
+            rgba(57, 55, 72, 0.22),
+            rgba(57, 55, 72, 0.22)
+          ),
+          #fff;
+        border-radius: 10%;
+        border: 1px solid #ffffff;
+        box-shadow: 0px 0px 2px 2px rgb(155, 155, 155);
+      }
+    }
+    .addBlockMinus {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #000;
+      background: linear-gradient(#000, #000), #fff;
+      background-position: center;
+      background-size: 50% 1px, 1px 50%;
+      background-repeat: no-repeat;
+      &:active {
+        background: linear-gradient(
+            rgba(57, 55, 72, 0.22),
+            rgba(57, 55, 72, 0.22)
+          ),
+          #fff;
+        border-radius: 10%;
+        border: 1px solid #ffffff;
+        box-shadow: 0px 0px 2px 2px rgb(155, 155, 155);
+      }
+    }
+  }
+}
+.totalCurrency {
+  margin-top: 12px;
+  .totalCurrencyValute {
+    display: flex;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    padding-bottom: 16px;
+  }
+}
+.Plus img {
+  width: 50px;
+}

@@ -6,12 +6,13 @@ let DropDownCart = (props) => {
     props.PlusProductFoo(e.target.id);
   };
   let MinusFunc = (e) => {
+    debugger;
     props.MinusProductFoo(e.target.id);
   };
   let TotalPrice = 0;
   let Amount;
   let TotalCurrencyFunc = () => {};
-  if (true /* props.stateOnBlure */) {
+  if (props.DropDownCheck) {
     return (
       <div className={style.DropDown}>
         <div className={style.DropDownHeaderInfo}>
@@ -40,7 +41,9 @@ let DropDownCart = (props) => {
                       {it.attributes.map((attributesItem) => {
                         return (
                           <div className={style.attributesItem}>
-                            <div>{attributesItem.items.key}:</div>
+                            <div className={style.attributesItemKey}>
+                              {attributesItem.items.key}:
+                            </div>
                             <div className={style.attributesItemValue}>
                               <span> {attributesItem.items.value}</span>
                             </div>
@@ -65,7 +68,7 @@ let DropDownCart = (props) => {
                       id={it.id}
                       className={style.addBlockMinus}
                     >
-                      <span> -</span>
+                      <span>-</span>
                     </div>
                   </div>
                   <div className={style.itemPhoto}>

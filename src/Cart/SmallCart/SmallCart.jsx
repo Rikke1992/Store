@@ -5,12 +5,12 @@ import style from "./SmallCartStyle.module.css";
 import logoCart from "./../../Img/Vector.png";
 
 let SmallCart = (props) => {
-  let [stateOnBlure, ChangeStateOnBlure] = useState(false);
+  /*  let [stateOnBlure, ChangeStateOnBlure] = useState(false); */
   let onBlurDropDownMenu = () => {
-    return ChangeStateOnBlure(true);
+    return props.dropDownCartChekThunk(true);
   };
   let ofBlurDropDownMenu = () => {
-    return ChangeStateOnBlure(false);
+    return props.dropDownCartChekThunk(false);
   };
 
   return (
@@ -30,7 +30,7 @@ let SmallCart = (props) => {
       </NavLink>
       <DropDownCart
         {...props}
-        stateOnBlure={stateOnBlure}
+        /* stateOnBlure={stateOnBlure} */
         ofBlurDropDownMenu={ofBlurDropDownMenu}
       />
     </div>

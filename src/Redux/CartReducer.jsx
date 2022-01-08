@@ -4,13 +4,20 @@ let initialState = {
   ],
   value: 0,
   totalPrice: 0,
+  dropDownCart: false,
 };
 
 const ADD_PRODUCT = "AddProduct";
 const DELETE_PRODUCT = "DeleteProduct";
 const PLUS_PRODUCT = "PlusProduct";
 const MINUS_PRODUCT = "MinusProduct";
+const DROP_DOWN_CART_CHECK = "dropDownCartCHek";
 
+export const dropDownCartChekThunk = (value) => {
+  return (dispatch) => {
+    dispatch(DropDownCartCheckDispatch(value));
+  };
+};
 export const AddToCartProductThunk = (product) => {
   return (dispatch) => {
     dispatch(AddProductDispatch(product));
@@ -107,10 +114,24 @@ const CartReducer = (state = initialState, action) => {
         return newState;
       }
       break;
+    case DROP_DOWN_CART_CHECK:
+      {
+        let newState = {
+          ...state,
+        };
+        newState.dropDownCart = action.value;
+        return newState;
+      }
+      break;
+
     default: {
       return state;
     }
   }
+};
+
+const DropDownCartCheckDispatch = (value) => {
+  return { type: DROP_DOWN_CART_CHECK, value };
 };
 
 const MinusProductDispatch = (id) => {

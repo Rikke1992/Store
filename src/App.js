@@ -1,19 +1,30 @@
-import "./App.css";
+import style from "./App.module.css";
 import Menu from "./Menu/menu";
 import React from "react";
 import Wraper from "./Wraper";
-import { Query } from "./Query/Query";
-import Preloader from "./Preloader/Preloader";
+import { DropDownCheckSelector } from "./Selectors/CartSelector";
+import blure from "./Img/bgImageBlure.png";
+import { connect } from "react-redux";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="APP">
+      <div className={style.APP}>
         <Menu />
+        {this.props.DropDownCartCheck ? (
+          <div className={style.appBlureDisplay}>
+            <img src={blure}></img>
+          </div>
+        ) : null}
         <Wraper />
       </div>
     );
   }
 }
 
-export default App;
+let MapStateToProps = (state) => {
+  return {
+    DropDownCartCheck: DropDownCheckSelector(state),
+  };
+};
+export default connect(MapStateToProps, {})(App);

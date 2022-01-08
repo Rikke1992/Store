@@ -3,7 +3,13 @@
   position: fixed;
   display: block;
   width: 22.22%;
-  background: #81a8b8;
+  padding-top: 55px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: white;
+  z-index: 4;
+  overflow-y: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
 }
 .DropDown img {
   max-width: 150px;
@@ -27,6 +33,7 @@
   width: 41.84%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .CartitemWraper .itemName {
   font-family: Raleway;
@@ -56,6 +63,7 @@
 
 .attributesItem {
   display: flex;
+  justify-content: space-between;
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
@@ -63,7 +71,7 @@
   line-height: 160%;
   display: flex;
   align-items: center;
-  text-align: center;
+  margin-bottom: 15px;
 }
 .attributesItem .attributesItemValue {
   margin-left: 8px;
@@ -90,13 +98,16 @@
   width: 24px;
   border: 1px solid #1d1f22;
 }
+.addBlock .addBlockPlus:active,
+.addBlock .addBlockMinus:active {
+  background: linear-gradient(rgba(57, 55, 72, 0.22), rgba(57, 55, 72, 0.22)), #fff;
+  border-radius: 10%;
+  border: 1px solid #ffffff;
+  box-shadow: 0px 0px 2px 2px #9b9b9b;
+}
 .addBlock .addBlockPlus span,
 .addBlock .addBlockMinus span {
   margin: 0 auto;
-}
-.addBlock .addBlockPlus:active,
-.addBlock .addBlockMinus:active {
-  box-shadow: 0px 0px 2px 2px #9b9b9b;
 }
 .addBlock .valueItem {
   margin: 0 auto;
@@ -105,12 +116,12 @@
 .itemPhoto {
   margin-left: 10px;
   width: 105px;
-  height: 137px;
+  height: 105px;
 }
 .itemPhoto img {
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .totalPrice {

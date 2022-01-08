@@ -23,31 +23,49 @@ let Cart = (props) => {
               : item.prices[props.indexCurrencyActiv].amount;
           return (
             <div className={style.cartProduct} id={item.id}>
-              <div>{item.name}</div>
-              <div>{item.description}</div>
-              <div>
-                <div>{item.prices[props.indexCurrencyActiv].amount}</div>
-                <div>{item.prices[props.indexCurrencyActiv].currency}</div>
+              <div className={style.cartProductFirstBlock}>
+                <div>
+                  <h2>{item.name}</h2>
+                </div>
+
+                <div className={style.currency}>
+                  <div>{item.prices[props.indexCurrencyActiv].currency}</div>
+                  <div>{item.prices[props.indexCurrencyActiv].amount}</div>
+                </div>
+                <div className={style.attributesBlock}>
+                  {item.attributes.map((attributesItem) => {
+                    return (
+                      <div className={style.attributesItem}>
+                        <div className={style.attributesItemKey}>
+                          {attributesItem.items.key}:
+                        </div>
+                        <div className={style.attributesItemValue}>
+                          <span> {attributesItem.items.value}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              <div>
-                <img src={item.gallery[0]}></img>
-              </div>
-              <div>Pieces= {item.value}</div>
-              <div className={style.Plus}>
-                <img
-                  onClick={PlusProductFoo}
-                  src={
-                    "https://media.istockphoto.com/vectors/black-plus-sign-positive-symbol-vector-id688550958?k=20&m=688550958&s=612x612&w=0&h=wvzUqT3u3feYygOXg3GB9pYBbqIsyu_xpvfTX-6HOd0="
-                  }
-                  id={item.id}
-                ></img>
-                <img
-                  onClick={MinusProductFoo}
-                  src={
-                    "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/54894/minus-emoji-clipart-md.png"
-                  }
-                  id={item.id}
-                ></img>
+              <div className={style.cartProductSecondBlock}>
+                <div className={style.addBlock}>
+                  <div
+                    onClick={PlusProductFoo}
+                    id={item.id}
+                    className={style.addBlockPlus}
+                  ></div>
+                  <div className={style.valueItem}>
+                    <span> {item.value} </span>
+                  </div>
+                  <div
+                    onClick={MinusProductFoo}
+                    id={item.id}
+                    className={style.addBlockMinus}
+                  ></div>
+                </div>
+                <div className={style.productImage}>
+                  <img src={item.gallery[0]}></img>
+                </div>
               </div>
             </div>
           );
@@ -55,9 +73,11 @@ let Cart = (props) => {
       ) : (
         <span>Cart is empty</span>
       )}
-      <div>
+      <div className={style.totalCurrency}>
         <h2>Total Currency</h2>
-        <div>{Amount}</div> {Math.round(TotalPrice * 100) / 100}
+        <div className={style.totalCurrencyValute}>
+          {Amount + " " + Math.round(TotalPrice * 100) / 100}
+        </div>
       </div>
     </div>
   );

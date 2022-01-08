@@ -3,6 +3,7 @@
   height: 33.09%;
   width: 69.58%;
   margin: 80px 219px 72px 100px;
+  z-index: 1;
 }
 
 .carouselProduct {
@@ -66,6 +67,10 @@
   line-height: 120%;
   margin-bottom: 40px;
 }
+.buttonAddCart:active {
+  background: #36d4b2;
+  box-shadow: 0px 0px 10px 1px #929292;
+}
 
 .sizes {
   display: flex;
@@ -82,6 +87,11 @@
   border: 1px solid #a6a6a6;
   box-sizing: border-box;
   margin-right: 12px;
+}
+.sizesItem:active {
+  background: #b6b6b6;
+  box-shadow: 0px 0px 10px 1px #929292;
+  color: lime;
 }
 
 /* .sizesItem :hover {
@@ -102,6 +112,11 @@
   height: 45px;
   box-sizing: border-box;
   color: #ffffff;
+}
+.sizesItemCheck:active {
+  background: #b6b6b6;
+  box-shadow: 0px 0px 10px 1px #929292;
+  color: lime;
 }
 
 .itemProduct {

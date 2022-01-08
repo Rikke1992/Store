@@ -2,10 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   CartItemsProductSelector,
-  CartProductSelector,
+  DropDownCheckSelector,
 } from "../../Selectors/CartSelector";
 import SmallCart from "./SmallCart";
-import { PlusProductThunk, MinusProductThunk } from "./../../Redux/CartReducer";
+import {
+  PlusProductThunk,
+  MinusProductThunk,
+  dropDownCartChekThunk,
+} from "./../../Redux/CartReducer";
 import {
   indexCurrencyActiv,
   totalCurrencySelector,
@@ -35,10 +39,12 @@ const mapStateToProps = (state) => {
     cartProducts: CartItemsProductSelector(state),
     indexCurrencyActiv: indexCurrencyActiv(state),
     totalCurrency: totalCurrencySelector(state),
+    DropDownCheck: DropDownCheckSelector(state),
   };
 };
 
 export default connect(mapStateToProps, {
   PlusProductThunk,
   MinusProductThunk,
+  dropDownCartChekThunk,
 })(SmallCartContainer);
