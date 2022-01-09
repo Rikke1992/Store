@@ -2,13 +2,20 @@
   background: #1d1f22;
   color: white;
 }
+.activ:hover {
+  background: #909090;
+}
 
 .nonActiv {
   background: white;
 }
+.nonActiv:hover {
+  background: #909090;
+}
 
 .curencyContainer {
   display: flex;
+  cursor: pointer;
 }
 .curencyContainer img {
   align-items: center;

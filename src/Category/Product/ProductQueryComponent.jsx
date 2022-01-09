@@ -15,8 +15,11 @@ class ProductQueryComponent extends React.Component {
     options: [],
     productInState: null,
     isLoading: true,
+    imageCarouselIndex: 0,
   };
-
+  changeIndexImageInCarouselFunc = (value) => {
+    return this.setState({ imageCarouselIndex: value });
+  };
   changeLocalStateForTech = (item) => {
     //Add default value in first loading
     if (this.state.options.length == 0) {
@@ -80,16 +83,20 @@ class ProductQueryComponent extends React.Component {
       if (this.state.productInState) {
         return (
           <Product
+            changeIndexImageInCarouselFunc={this.changeIndexImageInCarouselFunc}
             optionsForTechCategory={this.state.options}
             changeLocalStateForTech={this.changeLocalStateForTech}
             indexCurrencyActiv={this.props.indexCurrencyActiv}
             product={this.findProduct()}
             addToCartProductFunk={this.addToCartProductFunk}
+            imageInCarouselIndex={this.state.imageCarouselIndex}
           />
         );
       } else {
         return (
           <QueryGetProductOfId
+            imageInCarouselIndex={this.state.imageCarouselIndex}
+            changeIndexImageInCarouselFunc={this.changeIndexImageInCarouselFunc}
             optionsForTechCategory={this.state.options}
             changeLocalStateForTech={this.changeLocalStateForTech}
             indexCurrencyActiv={this.props.indexCurrencyActiv}

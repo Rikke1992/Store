@@ -81,18 +81,18 @@
 
 .attributesItem {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 160%;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
 }
 .attributesItem .attributesItemValue {
-  margin-left: 8px;
+  margin-top: 2px;
+  margin-bottom: 10px;
 }
 .attributesItem .attributesItemValue span {
   border: 1px solid #1d1f22;
@@ -107,25 +107,39 @@
   flex-direction: column;
   width: 24px;
 }
-.addBlock .addBlockPlus,
-.addBlock .addBlockMinus {
-  display: flex;
-  align-items: center;
-  align-self: center;
-  text-align: center;
+.addBlock .addBlockPlus {
+  display: inline-block;
   width: 24px;
-  border: 1px solid #1d1f22;
+  height: 24px;
+  border: 1px solid #000;
+  background: linear-gradient(#000, #000), linear-gradient(#000, #000), #fff;
+  background-position: center;
+  background-size: 50% 1px, 1px 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
-.addBlock .addBlockPlus:active,
-.addBlock .addBlockMinus:active {
+.addBlock .addBlockPlus:active {
   background: linear-gradient(rgba(57, 55, 72, 0.22), rgba(57, 55, 72, 0.22)), #fff;
   border-radius: 10%;
   border: 1px solid #ffffff;
   box-shadow: 0px 0px 2px 2px #9b9b9b;
 }
-.addBlock .addBlockPlus span,
-.addBlock .addBlockMinus span {
-  margin: 0 auto;
+.addBlock .addBlockMinus {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000;
+  background: linear-gradient(#000, #000), #fff;
+  background-position: center;
+  background-size: 50% 1px, 1px 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.addBlock .addBlockMinus:active {
+  background: linear-gradient(rgba(57, 55, 72, 0.22), rgba(57, 55, 72, 0.22)), #fff;
+  border-radius: 10%;
+  border: 1px solid #ffffff;
+  box-shadow: 0px 0px 2px 2px #9b9b9b;
 }
 .addBlock .valueItem {
   margin: 0 auto;
@@ -151,4 +165,27 @@
   font-size: 16px;
   line-height: 18px;
   margin: 0 20px 35px 16px;
+}
+
+.buttonGoToCart {
+  width: 100%;
+  height: 50px;
+  background: #5ece7b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: white;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  margin-bottom: 40px;
+  padding: 0 16px 0 16px;
+  border-radius: 10px;
+}
+.buttonGoToCart:active {
+  background: #36d4b2;
+  box-shadow: 0px 0px 10px 1px #929292;
 }

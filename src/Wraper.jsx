@@ -5,8 +5,12 @@ import CartContainer from "./Cart/CartContainer";
 import CheckCategoryAndQuery from "./Category/CheckCategoryAndQuery";
 import ProductQueryComponent from "./Category/Product/ProductQueryComponent";
 import { DropDownCheckSelector } from "./Selectors/CartSelector";
-
+import { CategorytSelector } from "./Selectors/ProductsSelector";
+import { deleteCategoryAction } from "./Redux/ProductsReducer";
 class Wraper extends React.Component {
+  deleteCategoryInStateFunc = () => {
+    return this.props.deleteCategoryAction();
+  };
   render() {
     return (
       <div>
@@ -29,6 +33,8 @@ class Wraper extends React.Component {
         <Route
           path="/Cart"
           render={() => {
+            this.deleteCategoryInStateFunc();
+
             return <CartContainer />;
           }}
         />
@@ -36,5 +42,9 @@ class Wraper extends React.Component {
     );
   }
 }
-
-export default Wraper;
+let mapStateToProps = (state) => {
+  return {
+    category: CategorytSelector(state),
+  };
+};
+export default connect(mapStateToProps, { deleteCategoryAction })(Wraper);

@@ -25,6 +25,10 @@ let Product = (props) => {
     );
   };
 
+  let changeMainPhoto = (e) => {
+    props.changeIndexImageInCarouselFunc(e.target.id);
+  };
+
   if (!props.product.category) {
     return <Preloader />;
   } else {
@@ -36,14 +40,18 @@ let Product = (props) => {
         <div className={style.carouselProduct}>
           {gallery.map((item, index) => {
             return (
-              <div id={index}>
-                <img src={item}></img>
+              <div
+                id={index}
+                className={style.carouselProductPhoto}
+                onClick={changeMainPhoto}
+              >
+                <img src={item} id={index} alt="Picture"></img>
               </div>
             );
           })}
         </div>
         <div className={style.mainPhoto}>
-          <img src={gallery[0]}></img>
+          <img src={gallery[props.imageInCarouselIndex]}></img>
         </div>
         <div className={style.description}>
           <h1>{name}</h1>

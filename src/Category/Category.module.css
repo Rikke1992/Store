@@ -17,17 +17,25 @@
   font-weight: 500;
   color: #1d1f22;
 }
-.category .product {
-  width: 33%;
-  max-height: 10.69%;
-  max-width: 386px;
+
+.product {
   display: flex;
+  flex: 0 1 33.33%;
+  height: 444px;
+  flex-wrap: wrap;
+  height: 29%;
+  margin-bottom: 110px;
 }
-.category .categoryProductPhoto img {
+.product .categoryProductPhoto {
+  width: 354px;
+  height: 354px;
+}
+.product .categoryProductPhoto img {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  object-fit: cover;
 }
-.category a {
+.product a {
   text-decoration: none;
 }
 

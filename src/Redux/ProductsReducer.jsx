@@ -6,6 +6,7 @@ let initialState = {
 };
 const GET_STATE_WITH_PRODUCTS = "getStateWithProducts";
 const GET_ONE_PRODUCT = "getOneProduct";
+const DELETE_CATEGORY = "deleteCategory";
 
 export const getStateWithProductsThunk = (array) => {
   return (dispatch) => {
@@ -40,6 +41,13 @@ const ProductsReducer = (state = initialState, action) => {
         return newState;
       }
       break;
+    case DELETE_CATEGORY:
+      {
+        let newState = { ...state };
+        newState.category = null;
+        return newState;
+      }
+      break;
 
     default: {
       return state;
@@ -57,6 +65,12 @@ const getOneProductAction = (product) => {
   return {
     type: GET_ONE_PRODUCT,
     product,
+  };
+};
+
+export const deleteCategoryAction = () => {
+  return {
+    type: DELETE_CATEGORY,
   };
 };
 

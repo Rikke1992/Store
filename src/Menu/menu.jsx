@@ -6,8 +6,12 @@ import style from "./Menu.module.css";
 import logoHome from "./../Img/a-logo.png";
 import { connect } from "react-redux";
 import { CategorytSelector } from "../Selectors/ProductsSelector";
+import { deleteCategoryAction } from "../Redux/ProductsReducer";
 
 class Menu extends React.Component {
+  deleteCategoryInStateFunc = () => {
+    this.props.deleteCategoryAction();
+  };
   render() {
     return (
       <div className={style.menu}>
@@ -16,7 +20,9 @@ class Menu extends React.Component {
             <div className={style.category}>
               <div
                 className={
-                  this.props.category == "clothes" ? style.active : null
+                  this.props.category == "clothes"
+                    ? style.active
+                    : style.notActive
                 }
               >
                 <li>
@@ -24,14 +30,19 @@ class Menu extends React.Component {
                 </li>
               </div>
               <div
-                className={this.props.category == "tech" ? style.active : null}
+                className={
+                  this.props.category == "tech" ? style.active : style.notActive
+                }
               >
                 <li>
                   <NavLink to="/category/tech">TECH</NavLink>
                 </li>
               </div>
             </div>
-            <div className={style.home}>
+            <div
+              className={style.home}
+              onClick={this.deleteCategoryInStateFunc}
+            >
               <li>
                 <NavLink to="/">
                   <img src={logoHome} alt={"Home"}></img>
@@ -57,4 +68,4 @@ let mapStateToProps = (state) => {
     category: CategorytSelector(state),
   };
 };
-export default connect(mapStateToProps, {})(Menu);
+export default connect(mapStateToProps, { deleteCategoryAction })(Menu);

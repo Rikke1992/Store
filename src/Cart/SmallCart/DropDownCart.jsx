@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import style from "./DropDownCart.module.css";
 
 let DropDownCart = (props) => {
@@ -6,7 +7,6 @@ let DropDownCart = (props) => {
     props.PlusProductFoo(e.target.id);
   };
   let MinusFunc = (e) => {
-    debugger;
     props.MinusProductFoo(e.target.id);
   };
   let TotalPrice = 0;
@@ -27,7 +27,7 @@ let DropDownCart = (props) => {
                 it.value != 1
                   ? it.value * it.prices[props.indexCurrencyActiv].amount
                   : it.prices[props.indexCurrencyActiv].amount;
-              debugger;
+
               return (
                 //render item name, currency, and other atributes
                 <div className={style.cartItems}>
@@ -58,7 +58,7 @@ let DropDownCart = (props) => {
                       id={it.id}
                       className={style.addBlockPlus}
                     >
-                      <span>+</span>
+                      {/*  <span>+</span> */}
                     </div>
                     <div className={style.valueItem}>
                       <span> {it.value} </span>
@@ -68,7 +68,7 @@ let DropDownCart = (props) => {
                       id={it.id}
                       className={style.addBlockMinus}
                     >
-                      <span>-</span>
+                      {/*    <span>-</span> */}
                     </div>
                   </div>
                   <div className={style.itemPhoto}>
@@ -85,6 +85,9 @@ let DropDownCart = (props) => {
             {Amount}
           </span>
         </div>
+        <NavLink to="/Cart">
+          <div className={style.buttonGoToCart}> Go to Cart</div>
+        </NavLink>
       </div>
     );
   } else {

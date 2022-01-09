@@ -43,21 +43,23 @@
   .attributesBlock {
     display: inline-block;
     margin-top: 12px;
+    .attributesItemKey {
+      margin-bottom: 10px;
+    }
     .attributesItem {
       display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+      align-items: flex-start;
       justify-content: start;
       font-family: Source Sans Pro;
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
       line-height: 160%;
-      display: flex;
-      align-items: center;
       margin-bottom: 15px;
 
       .attributesItemValue {
-        margin-left: 8px;
-
         span {
           border: 1px solid #1d1f22;
           box-sizing: border-box;
@@ -89,6 +91,7 @@
       background-position: center;
       background-size: 50% 1px, 1px 50%;
       background-repeat: no-repeat;
+      border-radius: 10%;
       &:active {
         background: linear-gradient(
             rgba(57, 55, 72, 0.22),
@@ -109,6 +112,7 @@
       background-position: center;
       background-size: 50% 1px, 1px 50%;
       background-repeat: no-repeat;
+      border-radius: 10%;
       &:active {
         background: linear-gradient(
             rgba(57, 55, 72, 0.22),

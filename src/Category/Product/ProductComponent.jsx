@@ -9,12 +9,19 @@ import {
 import Product from "./Product";
 
 class ProductComponent extends React.Component {
+ 
   componentDidMount() {
     this.props.getOneProductsThunk(this.props.data.product);
   }
   render() {
     if (this.props.GetOneProduct) {
-      return <Product {...this.props} product={this.props.GetOneProduct} />;
+      return (
+        <Product
+                  {...this.props}
+          product={this.props.GetOneProduct}
+       
+        />
+      );
     } else {
       return <Preloader />;
     }
