@@ -11,7 +11,7 @@ let CurrencyDropDown = (props) => {
         return (
           <div
             className={
-              props.CurencyActivItem == item ? style.activ : style.nonActiv
+              props.CurencyActivItem === item ? style.activ : style.nonActiv
             }
             onClick={changeCyrrency}
           >

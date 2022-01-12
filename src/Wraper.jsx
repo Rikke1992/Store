@@ -4,7 +4,6 @@ import { Route } from "react-router-dom";
 import CartContainer from "./Cart/CartContainer";
 import CheckCategoryAndQuery from "./Category/CheckCategoryAndQuery";
 import ProductQueryComponent from "./Category/Product/ProductQueryComponent";
-import { DropDownCheckSelector } from "./Selectors/CartSelector";
 import { CategorytSelector } from "./Selectors/ProductsSelector";
 import { deleteCategoryAction } from "./Redux/ProductsReducer";
 class Wraper extends React.Component {

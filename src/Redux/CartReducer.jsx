@@ -42,7 +42,7 @@ const CartReducer = (state = initialState, action) => {
           ...state,
         };
         let someIdentical = newState.products.some(
-          (item) => item.id == action.product.id
+          (item) => item.id === action.product.id
         );
         if (someIdentical) {
           newState.products = newState.products.map((item) => {
@@ -76,7 +76,7 @@ const CartReducer = (state = initialState, action) => {
           }
         });
         newState.products = newState.products.filter((it) => {
-          return it.value != 0;
+          return it.value !== 0;
         });
         return newState;
       }
@@ -144,9 +144,5 @@ const PlusProductDispatch = (id) => {
 const AddProductDispatch = (product) => {
   return { type: ADD_PRODUCT, product };
 };
-const DeleteProduct = (product) => ({
-  type: DELETE_PRODUCT,
-  product,
-});
 
 export default CartReducer;

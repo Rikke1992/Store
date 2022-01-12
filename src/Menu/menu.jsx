@@ -20,7 +20,7 @@ class Menu extends React.Component {
             <div className={style.category}>
               <div
                 className={
-                  this.props.category == "clothes"
+                  this.props.category === "clothes"
                     ? style.active
                     : style.notActive
                 }
@@ -31,7 +31,9 @@ class Menu extends React.Component {
               </div>
               <div
                 className={
-                  this.props.category == "tech" ? style.active : style.notActive
+                  this.props.category === "tech"
+                    ? style.active
+                    : style.notActive
                 }
               >
                 <li>

@@ -22,12 +22,12 @@ class ProductQueryComponent extends React.Component {
   };
   changeLocalStateForTech = (item) => {
     //Add default value in first loading
-    if (this.state.options.length == 0) {
+    if (this.state.options.length === 0) {
       return this.setState({ options: item });
     } else {
       //Change local options
       let newStateOptions = this.state.options.map((it) => {
-        return item.key == it.key ? item : it;
+        return item.key === it.key ? item : it;
       });
       return this.setState({ options: newStateOptions });
     }
@@ -45,7 +45,7 @@ class ProductQueryComponent extends React.Component {
   findProduct() {
     if (this.props.product != null) {
       return this.props.product.find((item) => {
-        return item.id == this.props.match.params.id;
+        return item.id === this.props.match.params.id;
       });
     } else {
       return undefined;
