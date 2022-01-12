@@ -2,6 +2,7 @@
 # yarn lockfile v1
 
 
+
 "@apollo/client@^3.5.5":
   "integrity" "sha512-HSLqTGp3sp/PVIWYLLr5v3fjQSr6Fxg6Z5RQj5Q9ALyseIVudD8GZk1jHplaUblTFMBueXGw3Z6DXObuVAr3tw=="
   "resolved" "https://registry.npmjs.org/@apollo/client/-/client-3.5.7.tgz"
@@ -135,6 +136,7 @@
     "@babel/helper-optimise-call-expression" "^7.16.7"
     "@babel/helper-replace-supers" "^7.16.7"
     "@babel/helper-split-export-declaration" "^7.16.7"
+
 
 "@babel/helper-create-regexp-features-plugin@^7.16.7":
   "integrity" "sha512-fk5A6ymfp+O5+p2yCkXAu5Kyj6v0xh0RBeNcAkYUMDvvAAoxvSKXn+Jb37t/yWFiQVDFK1ELpUTD8/aLhCPu+g=="
