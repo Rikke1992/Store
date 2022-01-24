@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import {
   MinusProductThunk,
   PlusProductThunk,
-} from "./../Redux/CartReducer.jsx";
+} from "./../Redux/CartReducer.tsx";
 import { indexCurrencyActiv } from "../Selectors/CurrencySelectors";
 
 class CartContainer extends React.Component {
