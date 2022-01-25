@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./../Currency/Currency.module.css";
+import { PropsType } from "./Currency";
 
-let CurrencyDropDown = (props) => {
-  let changeCyrrency = (e) => {
+let CurrencyDropDown: React.FC<PropsType> = (props) => {
+  let changeCyrrency = (e: any) => {
     return props.changeCurrencyFuncToProps(e.target.innerText);
   };
   return (
