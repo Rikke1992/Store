@@ -4,7 +4,18 @@ import CurrencyDropDown from "./CurrencyDropDown";
 import ButtonBottom from "./../Img/ButtonBottom.png";
 import style from "./Currency.module.css";
 
-let Currency = (props) => {
+
+
+export type PropsType = {
+  ChangeCurrencyThunk: (currency: any) => void;
+  CurencyActivItem: string;
+  CurencyListArray: Array<string>;
+  GetCurrencyThunk: (currency: any) => void;
+  changeCurrencyFuncToProps: any;
+  currencies: Array<string>;
+};
+
+let Currency: React.FC<PropsType> = (props) => {
   let [onMouse, ChangeMouseSettings] = useState(false);
   let onMouseFunk = () => {
     return ChangeMouseSettings(true);

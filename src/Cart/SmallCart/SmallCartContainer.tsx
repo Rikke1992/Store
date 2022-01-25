@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import {
   CartItemsProductSelector,
   DropDownCheckSelector,
@@ -9,24 +9,22 @@ import {
   PlusProductThunk,
   MinusProductThunk,
   dropDownCartChekThunk,
-} from "./../../Redux/CartReducer";
-import {
-  indexCurrencyActiv,
-  totalCurrencySelector,
-} from "../../Selectors/CurrencySelectors";
+} from "../../Redux/CartReducer";
+import { indexCurrencyActiv } from "../../Selectors/CurrencySelectors";
+import { GlobalStateApp } from "../../Redux/ReduxStore";
 
-class SmallCartContainer extends React.Component {
-  PlusProductFoo = (id) => {
+type propsSmallCartFromRedux = ConnectedProps<typeof connector>;
+class SmallCartContainer extends React.Component<propsSmallCartFromRedux> {
+  PlusProductFoo = (id: string) => {
     this.props.PlusProductThunk(id);
   };
 
-  MinusProductFoo = (id) => {
+  MinusProductFoo = (id: string) => {
     this.props.MinusProductThunk(id);
   };
   render() {
     return (
       <SmallCart
-        cartProducts={this.props.cartProducts}
         PlusProductFoo={this.PlusProductFoo}
         MinusProductFoo={this.MinusProductFoo}
         {...this.props}
@@ -34,17 +32,17 @@ class SmallCartContainer extends React.Component {
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: GlobalStateApp) => {
   return {
     cartProducts: CartItemsProductSelector(state),
     indexCurrencyActiv: indexCurrencyActiv(state),
-    totalCurrency: totalCurrencySelector(state),
     DropDownCheck: DropDownCheckSelector(state),
   };
 };
-
-export default connect(mapStateToProps, {
+const connector = connect(mapStateToProps, {
   PlusProductThunk,
   MinusProductThunk,
   dropDownCartChekThunk,
-})(SmallCartContainer);
+});
+
+export default connector(SmallCartContainer);

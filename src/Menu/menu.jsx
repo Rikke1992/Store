@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import SmallCartContainer from "../Cart/SmallCart/SmallCartContainer";
 import { QueryCurrencys } from "../Query/Query";
-import style from "./Menu.module.css";
+import style  from "./Menu.module.css";
 import logoHome from "./../Img/a-logo.png";
 import { connect } from "react-redux";
 import { CategorytSelector } from "../Selectors/ProductsSelector";

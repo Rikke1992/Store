@@ -1,4 +1,31 @@
-let initialState = {
+export type ProductsType = {
+  id: string;
+  value: number;
+  name: string;
+  cateory: string;
+  photo: string;
+};
+type initialStateType = {
+  products: Array<ProductsType>;
+  value: number;
+  totalPrice: number;
+  dropDownCart: boolean;
+};
+type actionTypes =
+  | DropDownCartCheckType
+  | MinusAndPlusProductType
+  | AddProductType;
+type DropDownCartCheckType = {
+  type: typeof DROP_DOWN_CART_CHECK;
+  value: boolean;
+};
+type MinusAndPlusProductType = {
+  type: typeof MINUS_PRODUCT | typeof PLUS_PRODUCT;
+  id: string;
+};
+type AddProductType = { type: typeof ADD_PRODUCT; product: ProductsType };
+
+let initialState: initialStateType = {
   products: [
     /* { id: 0, value: 0, name: "", cateory: "", photo: "" } */
   ],
@@ -7,34 +34,33 @@ let initialState = {
   dropDownCart: false,
 };
 
-const ADD_PRODUCT = "AddProduct";
-const DELETE_PRODUCT = "DeleteProduct";
-const PLUS_PRODUCT = "PlusProduct";
-const MINUS_PRODUCT = "MinusProduct";
-const DROP_DOWN_CART_CHECK = "dropDownCartCHek";
+const ADD_PRODUCT: "AddProduct" = "AddProduct";
+const PLUS_PRODUCT: "PlusProduct" = "PlusProduct";
+const MINUS_PRODUCT: "MinusProduct" = "MinusProduct";
+const DROP_DOWN_CART_CHECK: "dropDownCartChek" = "dropDownCartChek";
 
-export const dropDownCartChekThunk = (value) => {
-  return (dispatch) => {
+export const dropDownCartChekThunk = (value: boolean) => {
+  return (dispatch: any) => {
     dispatch(DropDownCartCheckDispatch(value));
   };
 };
-export const AddToCartProductThunk = (product) => {
-  return (dispatch) => {
+export const AddToCartProductThunk = (product: ProductsType) => {
+  return (dispatch: any) => {
     dispatch(AddProductDispatch(product));
   };
 };
-export const MinusProductThunk = (id) => {
-  return (dispatch) => {
+export const MinusProductThunk = (id: string) => {
+  return (dispatch: any) => {
     dispatch(MinusProductDispatch(id));
   };
 };
-export const PlusProductThunk = (id) => {
-  return (dispatch) => {
+export const PlusProductThunk = (id: string) => {
+  return (dispatch: any) => {
     dispatch(PlusProductDispatch(id));
   };
 };
 
-const CartReducer = (state = initialState, action) => {
+const CartReducer = (state = initialState, action: actionTypes) => {
   switch (action.type) {
     case ADD_PRODUCT:
       {
@@ -64,6 +90,7 @@ const CartReducer = (state = initialState, action) => {
       break;
     case MINUS_PRODUCT:
       {
+        debugger;
         let newState = {
           ...state,
         };
@@ -81,7 +108,6 @@ const CartReducer = (state = initialState, action) => {
         return newState;
       }
       break;
-
     case PLUS_PRODUCT:
       {
         let newState = {
@@ -98,22 +124,6 @@ const CartReducer = (state = initialState, action) => {
         return newState;
       }
       break;
-
-    case DELETE_PRODUCT:
-      {
-        let newState = {
-          ...state,
-          products: state.product.map((item) => {
-            if (item.id === action.id) {
-              return { ...item, value: --item.value };
-            } else {
-              return item;
-            }
-          }),
-        };
-        return newState;
-      }
-      break;
     case DROP_DOWN_CART_CHECK:
       {
         let newState = {
@@ -123,25 +133,23 @@ const CartReducer = (state = initialState, action) => {
         return newState;
       }
       break;
-
     default: {
       return state;
     }
   }
 };
 
-const DropDownCartCheckDispatch = (value) => {
+const DropDownCartCheckDispatch = (value: boolean): DropDownCartCheckType => {
   return { type: DROP_DOWN_CART_CHECK, value };
 };
 
-const MinusProductDispatch = (id) => {
+const MinusProductDispatch = (id: string): MinusAndPlusProductType => {
   return { type: MINUS_PRODUCT, id };
 };
-const PlusProductDispatch = (id) => {
+const PlusProductDispatch = (id: string): MinusAndPlusProductType => {
   return { type: PLUS_PRODUCT, id };
 };
-
-const AddProductDispatch = (product) => {
+const AddProductDispatch = (product: ProductsType): AddProductType => {
   return { type: ADD_PRODUCT, product };
 };
 

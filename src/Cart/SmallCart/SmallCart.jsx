@@ -5,7 +5,7 @@ import style from "./SmallCartStyle.module.css";
 import logoCart from "./../../Img/Vector.png";
 
 let SmallCart = (props) => {
-  /*  let [stateOnBlure, ChangeStateOnBlure] = useState(false); */
+  
   let onBlurDropDownMenu = () => {
     return props.dropDownCartChekThunk(true);
   };

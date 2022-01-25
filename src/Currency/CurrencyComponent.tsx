@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
+import { GlobalStateApp } from "../Redux/ReduxStore";
 import {
   ChangeCurrencyThunk,
   GetCurrencyThunk,
@@ -7,11 +8,15 @@ import {
 import { CurencyActiv, CurencyList } from "../Selectors/CurrencySelectors";
 import Currency from "./Currency";
 
-class CurrencyComponent extends React.Component {
+type ThisPropsType = { currencies: Array<string> };
+type AllProps = ThisPropsType & propsFromRedux;
+export type propsFromRedux = ConnectedProps<typeof connector>;
+
+class CurrencyComponent extends React.Component<AllProps> {
   componentDidMount() {
     this.props.GetCurrencyThunk(this.props.currencies);
   }
-  changeCurrencyFunc = (currency) => {
+  changeCurrencyFunc = (currency: any) => {
     return this.props.ChangeCurrencyThunk(currency);
   };
   render() {
@@ -23,13 +28,16 @@ class CurrencyComponent extends React.Component {
     );
   }
 }
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: GlobalStateApp) => {
   return {
     CurencyListArray: CurencyList(state),
     CurencyActivItem: CurencyActiv(state),
   };
 };
-export default connect(mapStateToProps, {
+
+const connector = connect(mapStateToProps, {
   GetCurrencyThunk,
   ChangeCurrencyThunk,
-})(CurrencyComponent);
+});
+
+export default connector(CurrencyComponent);
